@@ -164,7 +164,7 @@ function Header() {
               {/* Shopping Bag */}
               <Link
                 href="/cart"
-                className="relative p-2 sm:p-2.5 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm hover:shadow-[var(--shadow-green)] transition-all duration-200 active:scale-95"
+                className="relative p-2 sm:p-2.5 rounded-full bg-emerald-800 text-white hover:bg-emerald-900 shadow-sm transition-all duration-200 active:scale-95"
                 aria-label={`Shopping bag${itemCount > 0 ? `, ${itemCount} items` : ''}`}
               >
                 <ShoppingBag size={18} />

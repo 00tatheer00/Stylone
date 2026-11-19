@@ -2,85 +2,78 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui';
 
-interface CategoryBanner {
+interface CategoryItem {
   title: string;
   subtitle: string;
   href: string;
   image: string;
-  gradient: string;
 }
 
-const banners: CategoryBanner[] = [
+const categories: CategoryItem[] = [
   {
-    title: 'Shop Shampoos',
-    subtitle: 'Herbal Anti-Hairfall & Biotin Growth',
+    title: 'Herbal Shampoos',
+    subtitle: 'Biotin & Anti-Hairfall',
     href: '/category/haircare',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#064e3b] via-[#047857] to-[#0f766e]',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&h=300&fit=crop&q=80',
   },
   {
-    title: 'Shop Serums',
-    subtitle: 'Rosemary Scalp Regrowth & Active Glow',
+    title: 'Active Serums',
+    subtitle: 'Rosemary Scalp Regrowth',
     href: '/category/skincare',
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#047857] via-[#059669] to-[#10b981]',
+    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&h=300&fit=crop&q=80',
   },
   {
-    title: 'Shop Scalp Therapy',
-    subtitle: 'Anti-Dandruff & Follicle Rejuvenation',
+    title: 'Scalp Therapy',
+    subtitle: 'Neem & Anti-Dandruff',
     href: '/category/haircare',
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#065f46] via-[#047857] to-[#115e59]',
+    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&q=80',
   },
   {
-    title: 'Shop Moisturizers & Glow',
-    subtitle: 'Hyaluronic Hydration & Barrier Repair',
+    title: 'Radiance & Glow',
+    subtitle: 'Hyaluronic & Vitamin C',
     href: '/category/skincare',
-    image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#059669] via-[#10b981] to-[#34d399]',
+    image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=300&h=300&fit=crop&q=80',
   },
 ];
 
 export function JenpharmCategoryBanners() {
   return (
-    <section className="py-6 sm:py-8 bg-[#f8faf9]">
+    <section className="py-6 sm:py-8 bg-white border-b border-slate-100">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {banners.map((item) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {categories.map((cat) => (
             <Link
-              key={item.title}
-              href={item.href}
-              className={`relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r ${item.gradient} text-white shadow-md hover:shadow-xl transition-all duration-300 h-24 sm:h-28 flex items-center justify-between px-5 sm:px-6 group active:scale-[0.98] cursor-pointer`}
+              key={cat.title}
+              href={cat.href}
+              className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#f8faf9] border border-slate-200/70 hover:border-emerald-600 hover:bg-[#edf5f0] transition-all duration-200 group active:scale-[0.98] cursor-pointer shadow-2xs"
             >
+              {/* Circular Thumbnail */}
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-white shrink-0 border border-slate-200 shadow-2xs">
+                <Image
+                  src={cat.image}
+                  alt={cat.title}
+                  fill
+                  sizes="56px"
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+
               {/* Text */}
-              <div className="relative z-10 max-w-[62%]">
-                <h3 className="font-heading text-lg sm:text-xl font-black tracking-tight text-white leading-tight drop-shadow-sm">
-                  {item.title}
+              <div className="min-w-0 flex-1">
+                <h3 className="font-heading font-black text-xs sm:text-sm text-slate-900 group-hover:text-emerald-800 transition-colors truncate">
+                  {cat.title}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-emerald-100 line-clamp-1 mt-0.5 font-semibold">
-                  {item.subtitle}
+                <p className="text-[11px] text-slate-500 font-medium truncate mt-0.5">
+                  {cat.subtitle}
                 </p>
               </div>
 
-              {/* Model / Product Image */}
-              <div className="relative w-20 sm:w-24 h-full shrink-0 flex items-center justify-center">
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white/60 shadow-md">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="80px"
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-
-              {/* White Round Arrow Button */}
-              <div className="absolute right-3 bottom-3 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 w-8 h-8 rounded-full bg-white text-emerald-900 flex items-center justify-center shadow-md group-hover:bg-emerald-950 group-hover:text-white transition-colors duration-200">
-                <ChevronRight size={18} className="stroke-[2.5]" />
+              {/* Arrow */}
+              <div className="w-7 h-7 rounded-full bg-white text-slate-400 group-hover:bg-emerald-800 group-hover:text-white flex items-center justify-center shrink-0 border border-slate-200 group-hover:border-emerald-800 transition-all">
+                <ArrowRight size={13} />
               </div>
             </Link>
           ))}
