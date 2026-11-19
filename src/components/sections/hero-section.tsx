@@ -121,10 +121,10 @@ function HeroSection() {
             </div>
 
             {/* CTAs */}
-            <div ref={ctaRef} className="flex flex-wrap items-center gap-3.5 mt-8">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 mt-7 sm:mt-8">
               <Link
                 href="/category/haircare"
-                className="group relative inline-flex items-center gap-2.5 px-7 py-4 text-sm sm:text-base font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-green-600 text-white rounded-2xl hover:from-emerald-800 hover:to-green-700 hover:shadow-lg hover:shadow-emerald-600/30 transition-all duration-300 active:scale-[0.96] cursor-pointer overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-green-600 text-white rounded-2xl hover:from-emerald-800 hover:to-green-700 hover:shadow-lg hover:shadow-emerald-600/30 transition-all duration-300 active:scale-[0.96] cursor-pointer overflow-hidden shadow-md shadow-emerald-900/10"
               >
                 <span className="relative z-10">Shop Herbal Shampoos</span>
                 <ArrowRight size={18} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
@@ -133,7 +133,7 @@ function HeroSection() {
 
               <Link
                 href="/category/skincare"
-                className="inline-flex items-center gap-2 px-7 py-4 text-sm sm:text-base font-bold border-2 border-emerald-300 text-emerald-950 bg-white/90 backdrop-blur-xs rounded-2xl hover:bg-emerald-50 hover:border-emerald-500 hover:shadow-md transition-all duration-300 active:scale-[0.96] cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-bold border-2 border-emerald-300 text-emerald-950 bg-white/90 backdrop-blur-xs rounded-2xl hover:bg-emerald-50 hover:border-emerald-500 hover:shadow-md transition-all duration-300 active:scale-[0.96] cursor-pointer"
               >
                 <Sparkles size={18} className="text-emerald-600" />
                 <span>Explore Glow Serums</span>
@@ -207,10 +207,15 @@ function HeroSection() {
           {/* Right Column: Interactive Dual Product Showcase */}
           <div
             ref={cardsContainerRef}
-            className="lg:col-span-6 xl:col-span-6 relative flex flex-col sm:flex-row gap-5 lg:gap-6 justify-center items-center py-6"
+            className="lg:col-span-6 xl:col-span-6 relative flex flex-row overflow-x-auto no-scrollbar snap-x snap-mandatory sm:overflow-visible gap-4 sm:gap-6 justify-start sm:justify-center items-stretch sm:items-center py-4 sm:py-6 -mx-4 px-4 sm:mx-0 sm:px-0"
           >
+            {/* Mobile swipe helper */}
+            <div className="sm:hidden absolute top-0 right-4 px-2 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 text-[10px] font-bold z-20 pointer-events-none">
+              Swipe 👉
+            </div>
+
             {/* Card 1: Star Shampoo */}
-            <div className="hero-product-card animate-float-slow w-full sm:w-[270px] bg-white rounded-3xl p-4 shadow-xl shadow-emerald-900/10 border border-emerald-100 hover:border-emerald-300 transition-all duration-300 group">
+            <div className="hero-product-card animate-float-slow w-[260px] sm:w-[270px] shrink-0 snap-center bg-white rounded-3xl p-4 shadow-xl shadow-emerald-900/10 border border-emerald-100 hover:border-emerald-300 transition-all duration-300 group">
               <div className="relative h-56 w-full rounded-2xl overflow-hidden bg-emerald-50/50 mb-3.5">
                 <Image
                   src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=800&h=1000&fit=crop&q=80"
@@ -273,7 +278,7 @@ function HeroSection() {
             </div>
 
             {/* Card 2: Star Serum */}
-            <div className="hero-product-card animate-float-delayed w-full sm:w-[270px] bg-white rounded-3xl p-4 shadow-xl shadow-emerald-900/10 border border-emerald-100 hover:border-emerald-300 transition-all duration-300 group sm:translate-y-8">
+            <div className="hero-product-card animate-float-delayed w-[260px] sm:w-[270px] shrink-0 snap-center bg-white rounded-3xl p-4 shadow-xl shadow-emerald-900/10 border border-emerald-100 hover:border-emerald-300 transition-all duration-300 group sm:translate-y-8">
               <div className="relative h-56 w-full rounded-2xl overflow-hidden bg-emerald-50/50 mb-3.5">
                 <Image
                   src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=1000&fit=crop&q=80"
@@ -345,6 +350,36 @@ function HeroSection() {
           </div>
         </div>
       </Container>
+
+      {/* Mobile Quick-Categories Strip (Touch Friendly) */}
+      <div className="border-t border-emerald-100/70 bg-white/70 backdrop-blur-sm py-3 px-4 sm:hidden">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+          <Link
+            href="/category/haircare"
+            className="shrink-0 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-900 flex items-center gap-1.5 active:scale-95"
+          >
+            <span>🧴 Anti-Hairfall Shampoos</span>
+          </Link>
+          <Link
+            href="/category/skincare"
+            className="shrink-0 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-900 flex items-center gap-1.5 active:scale-95"
+          >
+            <span>✨ Rosemary Scalp Serum</span>
+          </Link>
+          <Link
+            href="/category/haircare"
+            className="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-800 flex items-center gap-1.5 active:scale-95 shadow-2xs"
+          >
+            <span>🌿 Neem Anti-Dandruff</span>
+          </Link>
+          <Link
+            href="/category/skincare"
+            className="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-800 flex items-center gap-1.5 active:scale-95 shadow-2xs"
+          >
+            <span>💧 Hyaluronic Radiance</span>
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import { Heart, ShoppingBag, Check, ShieldCheck, Truck, RefreshCw } from 'lucide
 import { cn, formatPrice } from '@/lib/utils';
 import { useCart } from '@/hooks/use-cart';
 import { VariantSelector } from './variant-selector';
+import { StickyMobileAtc } from './sticky-mobile-atc';
 import type { Product, ProductVariant } from '@/types/product';
 
 interface ProductPurchaseBoxProps {
@@ -209,6 +210,16 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
           <span>7-Day Return Guarantee</span>
         </div>
       </div>
+
+      {/* Sticky Mobile Add-To-Bag Dock */}
+      <StickyMobileAtc
+        product={product}
+        selectedVariant={selectedVariant}
+        currentPrice={currentPrice}
+        isAvailable={Boolean(isAvailable)}
+        onAddToCart={handleAddToCart}
+        addedAnim={addedAnim}
+      />
     </div>
   );
 }

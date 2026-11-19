@@ -126,31 +126,31 @@ export function ProductCard({ product, className, priority = false }: ProductCar
       </Link>
 
       {/* Card Details */}
-      <div className="flex flex-col flex-1 p-4 sm:p-5">
+      <div className="flex flex-col flex-1 p-3 sm:p-4 md:p-5">
         {/* Brand & Category */}
-        <div className="flex items-center justify-between text-[11px] text-[var(--color-text-muted)] mb-1.5">
+        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-[var(--color-text-muted)] mb-1">
           <span className="font-semibold uppercase tracking-wider text-[var(--color-accent-hover)] truncate max-w-[65%]">
             {product.brand}
           </span>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] font-medium">
+          <span className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] font-medium truncate">
             {product.category}
           </span>
         </div>
 
         {/* Product Title */}
         <Link href={productUrl} className="block group-hover:text-[var(--color-accent-hover)] transition-colors">
-          <h3 className="text-sm font-semibold text-[var(--color-text-primary)] leading-snug line-clamp-2 min-h-[2.5rem]">
+          <h3 className="text-xs sm:text-sm font-semibold text-[var(--color-text-primary)] leading-snug line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
             {product.name}
           </h3>
         </Link>
 
         {/* Pricing */}
-        <div className="flex items-baseline gap-2 mt-2.5 mb-4">
-          <span className="text-base sm:text-lg font-bold text-[var(--color-text-primary)]">
+        <div className="flex items-baseline gap-1.5 sm:gap-2 mt-1.5 sm:mt-2.5 mb-2.5 sm:mb-4">
+          <span className="text-sm sm:text-base md:text-lg font-bold text-[var(--color-text-primary)]">
             {formatPrice(product.price)}
           </span>
           {hasDiscount && (
-            <span className="text-xs text-[var(--color-text-muted)] line-through">
+            <span className="text-[10px] sm:text-xs text-[var(--color-text-muted)] line-through">
               {formatPrice(product.originalPrice!)}
             </span>
           )}
@@ -162,9 +162,9 @@ export function ProductCard({ product, className, priority = false }: ProductCar
           onClick={handleAddToCart}
           disabled={!isAvailable}
           className={cn(
-            'w-full flex items-center justify-center gap-2 mt-auto',
-            'py-2.5 px-4 text-xs sm:text-sm font-semibold rounded-xl',
-            'transition-all duration-300 select-none shadow-xs',
+            'w-full flex items-center justify-center gap-1.5 sm:gap-2 mt-auto',
+            'py-2 sm:py-2.5 px-2.5 sm:px-4 text-[11px] sm:text-sm font-semibold rounded-xl cursor-pointer',
+            'transition-all duration-300 select-none shadow-2xs',
             !isAvailable
               ? 'bg-[var(--color-bg-secondary)] text-[var(--color-text-muted)] cursor-not-allowed'
               : addedAnim
@@ -179,14 +179,14 @@ export function ProductCard({ product, className, priority = false }: ProductCar
         >
           {addedAnim ? (
             <>
-              <Check size={16} className="stroke-[3] animate-bounce" />
-              <span>Added to Bag!</span>
+              <Check size={14} className="stroke-[3] animate-bounce" />
+              <span>Added!</span>
             </>
           ) : !isAvailable ? (
             'Sold Out'
           ) : (
             <>
-              <ShoppingBag size={16} className="transition-transform group-hover:-translate-y-0.5" />
+              <ShoppingBag size={14} className="transition-transform group-hover:-translate-y-0.5 sm:w-4 sm:h-4" />
               <span>Add to Bag</span>
             </>
           )}
