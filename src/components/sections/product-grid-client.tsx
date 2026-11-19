@@ -48,13 +48,13 @@ export function ProductGridClient({
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-14 md:py-20">
+    <section ref={sectionRef} className="py-12 md:py-16">
       <Container>
         <div className="flex items-end justify-between gap-4 mb-8">
           <SectionHeading title={title} subtitle={subtitle} className="mb-0" />
           <Link
             href={viewAllHref}
-            className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-800 transition-colors whitespace-nowrap shrink-0 group"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/60 text-xs sm:text-sm font-bold text-emerald-800 transition-all shrink-0 active:scale-95 group cursor-pointer"
           >
             <span>{viewAllLabel}</span>
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -72,14 +72,14 @@ export function ProductGridClient({
           ))}
         </div>
 
-        {/* Mobile view-all link */}
-        <div className="mt-8 text-center sm:hidden">
+        {/* Prominent Bottom View All CTA */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
           <Link
             href={viewAllHref}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-800"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-2xl bg-white border-2 border-emerald-600 text-emerald-950 hover:bg-emerald-700 hover:border-emerald-700 hover:text-white font-bold text-sm sm:text-base shadow-xs hover:shadow-lg hover:shadow-emerald-900/10 transition-all duration-300 active:scale-95 group cursor-pointer"
           >
-            <span>{viewAllLabel}</span>
-            <ArrowRight size={14} />
+            <span>View All Products</span>
+            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1.5" />
           </Link>
         </div>
       </Container>

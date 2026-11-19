@@ -192,11 +192,11 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
               <div className="flex flex-wrap gap-2.5 justify-center sm:justify-start">
                 {[
                   { label: '✨ Vitamin C Glow Serum', href: '/search?q=Vitamin+C' },
-                  { label: '🌿 Mineral Sunscreen SPF 50', href: '/search?q=Sunscreen' },
-                  { label: '💄 Matte Velvet Lipsticks', href: '/category/makeup' },
-                  { label: '💆 Pure Argan Hair Oil', href: '/search?q=Argan' },
-                  { label: '🫧 Gentle Foaming Cleanser', href: '/category/skincare' },
-                  { label: '🖌️ Luxury Brush Set', href: '/category/beauty-accessories' },
+                  { label: 'Herbal Anti-Hairfall Shampoo', href: '/search?q=Shampoo' },
+                  { label: 'Rosemary Scalp Regrowth Serum', href: '/search?q=Rosemary' },
+                  { label: 'Vitamin C Radiance Serum', href: '/search?q=Serum' },
+                  { label: 'Neem Anti-Dandruff Shampoo', href: '/search?q=Dandruff' },
+                  { label: 'Hyaluronic Acid Plump Serum', href: '/search?q=Hyaluronic' },
                 ].map((item) => (
                   <Link
                     key={item.label}

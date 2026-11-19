@@ -98,7 +98,7 @@ function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
               </span>
-              <span>🌿 100% Herbal Botanicals &amp; Active Serums</span>
+              <span>PURE BOTANICAL FORMULATIONS &amp; ACTIVE SERUMS</span>
             </div>
 
             {/* Main Headline */}
@@ -210,8 +210,8 @@ function HeroSection() {
             className="lg:col-span-6 xl:col-span-6 relative flex flex-row overflow-x-auto no-scrollbar snap-x snap-mandatory sm:overflow-visible gap-4 sm:gap-6 justify-start sm:justify-center items-stretch sm:items-center py-4 sm:py-6 -mx-4 px-4 sm:mx-0 sm:px-0"
           >
             {/* Mobile swipe helper */}
-            <div className="sm:hidden absolute top-0 right-4 px-2 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 text-[10px] font-bold z-20 pointer-events-none">
-              Swipe 👉
+            <div className="sm:hidden absolute top-0 right-4 px-2.5 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 text-[10px] font-bold z-20 pointer-events-none">
+              Swipe
             </div>
 
             {/* Card 1: Star Shampoo */}
@@ -226,7 +226,7 @@ function HeroSection() {
                   priority
                 />
                 <span className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-700 text-white shadow-xs">
-                  ★ Star Shampoo
+                  Star Shampoo
                 </span>
                 <span className="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/90 backdrop-blur-xs text-emerald-900 shadow-xs">
                   Sulfate-Free
@@ -259,6 +259,8 @@ function HeroSection() {
                     onClick={() => {
                       addItem({
                         id: shampooProduct.id,
+                        productId: shampooProduct.id,
+                        variantId: shampooProduct.variants?.[0]?.id,
                         name: shampooProduct.name,
                         price: shampooProduct.price,
                         image: shampooProduct.image,
@@ -289,7 +291,7 @@ function HeroSection() {
                   priority
                 />
                 <span className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-green-600 text-white shadow-xs">
-                  ✨ Active Serum
+                  Active Serum
                 </span>
                 <span className="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-white/90 backdrop-blur-xs text-emerald-900 shadow-xs">
                   Rosemary + 2% Caffeine
@@ -322,6 +324,8 @@ function HeroSection() {
                     onClick={() => {
                       addItem({
                         id: serumProduct.id,
+                        productId: serumProduct.id,
+                        variantId: serumProduct.variants?.[0]?.id,
                         name: serumProduct.name,
                         price: serumProduct.price,
                         image: serumProduct.image,
@@ -358,25 +362,25 @@ function HeroSection() {
             href="/category/haircare"
             className="shrink-0 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-900 flex items-center gap-1.5 active:scale-95"
           >
-            <span>🧴 Anti-Hairfall Shampoos</span>
+            <span>Anti-Hairfall Shampoos</span>
           </Link>
           <Link
             href="/category/skincare"
             className="shrink-0 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-900 flex items-center gap-1.5 active:scale-95"
           >
-            <span>✨ Rosemary Scalp Serum</span>
+            <span>Rosemary Scalp Serum</span>
           </Link>
           <Link
             href="/category/haircare"
             className="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-800 flex items-center gap-1.5 active:scale-95 shadow-2xs"
           >
-            <span>🌿 Neem Anti-Dandruff</span>
+            <span>Neem Anti-Dandruff</span>
           </Link>
           <Link
             href="/category/skincare"
             className="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-emerald-800 flex items-center gap-1.5 active:scale-95 shadow-2xs"
           >
-            <span>💧 Hyaluronic Radiance</span>
+            <span>Hyaluronic Radiance</span>
           </Link>
         </div>
       </div>

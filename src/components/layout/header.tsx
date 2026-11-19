@@ -14,11 +14,11 @@ import { gsap } from '@/lib/gsap';
 
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: '🌿 Herbal Shampoos', href: '/category/haircare' },
-  { label: '✨ Active Serums', href: '/category/skincare' },
+  { label: 'Herbal Shampoos', href: '/category/haircare' },
+  { label: 'Active Serums', href: '/category/skincare' },
   { label: 'Anti-Hairfall Care', href: '/category/haircare' },
-  { label: 'All Products', href: '/shop' },
-  { label: 'Beauty Tools', href: '/category/beauty-accessories' },
+  { label: 'Shop All', href: '/shop' },
+  { label: 'Beauty Accessories', href: '/category/beauty-accessories' },
 ];
 
 function Header() {

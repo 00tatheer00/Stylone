@@ -101,11 +101,17 @@ export function CheckoutView() {
           ...validation.data,
           phone: normalizePakistanPhone(validation.data.phone),
         },
-        items: items.map((it) => ({
-          productId: it.productId || it.id,
-          variantId: it.variantId,
-          quantity: it.quantity,
-        })),
+        items: items.map((it) => {
+          let pId = it.productId || it.slug || it.id;
+          if (pId.includes('-var-')) {
+            pId = pId.split('-var-')[0];
+          }
+          return {
+            productId: pId,
+            variantId: it.variantId,
+            quantity: it.quantity,
+          };
+        }),
         couponCode: appliedCoupon?.code,
         idempotencyKey: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined,
       };

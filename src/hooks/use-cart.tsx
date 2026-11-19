@@ -37,6 +37,8 @@ export interface AddItemInput {
   quantity?: number;
   slug?: string;
   variantName?: string;
+  productId?: string;
+  variantId?: string;
 }
 
 interface CartContextValue {
@@ -171,6 +173,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         ...prev,
         {
           id: newItem.id,
+          productId: newItem.productId,
+          variantId: newItem.variantId,
           name: newItem.name,
           price: newItem.price,
           image: newItem.image,

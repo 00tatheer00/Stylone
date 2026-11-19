@@ -39,6 +39,8 @@ export function ProductCard({ product, className, priority = false }: ProductCar
 
     addItem({
       id: product.variants && product.variants.length > 0 ? `${product.id}-${product.variants[0].id}` : product.id,
+      productId: product.id,
+      variantId: product.variants && product.variants.length > 0 ? product.variants[0].id : undefined,
       name: product.name,
       price: product.price,
       image: product.image,
@@ -138,8 +140,8 @@ export function ProductCard({ product, className, priority = false }: ProductCar
         </div>
 
         {/* Product Title */}
-        <Link href={productUrl} className="block group-hover:text-[var(--color-accent-hover)] transition-colors">
-          <h3 className="text-xs sm:text-sm font-semibold text-[var(--color-text-primary)] leading-snug line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
+        <Link href={productUrl} className="block group-hover:text-emerald-700 transition-colors">
+          <h3 className="font-heading text-xs sm:text-sm font-bold text-stone-900 leading-snug line-clamp-2 min-h-[2rem] sm:min-h-[2.4rem] tracking-tight">
             {product.name}
           </h3>
         </Link>

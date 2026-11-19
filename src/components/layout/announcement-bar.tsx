@@ -6,16 +6,16 @@ interface AnnouncementBarProps {
 }
 
 function AnnouncementBar({
-  message = '🌿 100% Herbal & Sulfate-Free Shampoos & Glow Serums — Free Express Delivery Nationwide on Rs. 3,000+',
+  message = 'ORDER ABOVE RS. 2,500 & WIN AN IPHONE 18 PRO! • FREE SAMPLE + FREE SHIPPING ON EVERY ORDER',
 }: AnnouncementBarProps) {
   return (
-    <div className="bg-gradient-to-r from-emerald-800 via-green-700 to-emerald-900 text-white py-2 text-xs sm:text-sm font-medium tracking-wide shadow-xs relative overflow-hidden border-b border-emerald-600/30">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none" />
+    <div className="bg-gradient-to-r from-emerald-800 via-green-800 to-teal-900 text-white py-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-xs relative overflow-hidden border-b border-emerald-700/40 select-none">
+      <div className="absolute inset-0 bg-white/5 pointer-events-none" />
       <Container>
         <div className="flex items-center justify-center gap-2 text-center truncate">
-          <Truck size={14} className="text-emerald-300 shrink-0 hidden sm:inline" />
+          <Truck size={14} className="text-emerald-300 shrink-0" />
           <span className="truncate">{message}</span>
-          <Sparkles size={13} className="text-amber-300 shrink-0 hidden sm:inline animate-pulse" />
+          <Sparkles size={13} className="text-amber-300 shrink-0 hidden sm:inline" />
         </div>
       </Container>
     </div>

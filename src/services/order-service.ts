@@ -243,9 +243,22 @@ export async function placeOrder(input: PlaceOrderInput): Promise<PlaceOrderResu
   }
 
   for (const it of items) {
-    const demoP = demoProducts.find(
-      (p) => p.id === it.productId || p.sku === it.productId || p.slug === it.productId
-    );
+    const rawId = (it.productId || '').trim().toLowerCase();
+    const demoP = demoProducts.find((p) => {
+      const pId = p.id.toLowerCase();
+      const pSku = p.sku.toLowerCase();
+      const pSlug = p.slug.toLowerCase();
+      return (
+        pId === rawId ||
+        pSku === rawId ||
+        pSlug === rawId ||
+        rawId.startsWith(pId) ||
+        rawId.startsWith(pSlug) ||
+        pId.startsWith(rawId) ||
+        p.variants?.some((v) => v.id.toLowerCase() === rawId || v.sku.toLowerCase() === rawId)
+      );
+    });
+
     if (!demoP) {
       return { success: false, error: 'Product not found in catalogue.' };
     }

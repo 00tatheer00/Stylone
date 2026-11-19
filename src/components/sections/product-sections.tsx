@@ -11,37 +11,40 @@ export function ProductGridSection(props: ProductGridSectionProps) {
 }
 
 async function FeaturedProducts({ initialProducts }: { initialProducts?: Product[] } = {}) {
-  const products = initialProducts || (await getFeaturedProducts(4));
+  const products = initialProducts || (await getFeaturedProducts(8));
   return (
     <ProductGridClient
-      title="Featured Products"
-      subtitle="Hand-picked essentials for your beauty routine"
+      title="Featured Herbal Formulations"
+      subtitle="Pure botanical shampoos, scalp tonics, and clinical face elixirs"
       products={products}
+      viewAllHref="/shop"
       viewAllLabel="View All Products"
     />
   );
 }
 
 async function BestSellers({ initialProducts }: { initialProducts?: Product[] } = {}) {
-  const products = initialProducts || (await getBestSellers(4));
+  const products = initialProducts || (await getBestSellers(8));
   return (
     <ProductGridClient
       title="Best Sellers"
-      subtitle="Most loved by our customers"
+      subtitle="Most loved hair & skincare essentials across Pakistan"
       products={products}
-      viewAllLabel="Shop Best Sellers"
+      viewAllHref="/shop"
+      viewAllLabel="Explore All Best Sellers"
     />
   );
 }
 
 async function NewArrivals({ initialProducts }: { initialProducts?: Product[] } = {}) {
-  const products = initialProducts || (await getNewArrivals(4));
+  const products = initialProducts || (await getNewArrivals(8));
   return (
     <ProductGridClient
       title="New Arrivals"
-      subtitle="Fresh additions to our collection"
+      subtitle="Freshly crafted botanical drops for your daily ritual"
       products={products}
-      viewAllLabel="See What's New"
+      viewAllHref="/shop"
+      viewAllLabel="Discover All Products"
     />
   );
 }

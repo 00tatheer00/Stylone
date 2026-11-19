@@ -44,6 +44,8 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
 
     addItem({
       id: selectedVariant ? `${product.id}-${selectedVariant.id}` : product.id,
+      productId: product.id,
+      variantId: selectedVariant ? selectedVariant.id : undefined,
       name: product.name,
       price: currentPrice,
       image: product.image,
@@ -77,7 +79,7 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
 
       {/* Title */}
       <div>
-        <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--color-text-primary)] leading-tight">
+        <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-stone-900 leading-tight">
           {product.name}
         </h1>
         <p className="mt-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
