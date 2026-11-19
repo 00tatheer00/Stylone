@@ -84,7 +84,7 @@ function MobileNav({ open, onClose, links }: MobileNavProps) {
           </p>
           <ul className="space-y-1.5">
             {links.map((link) => (
-              <li key={link.href}>
+              <li key={link.label}>
                 <Link
                   href={link.href}
                   onClick={onClose}

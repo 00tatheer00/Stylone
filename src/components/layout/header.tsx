@@ -98,7 +98,7 @@ function Header() {
             >
               {navLinks.map((link) => (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="nav-item-link relative px-3 py-1.5 text-xs xl:text-sm font-medium text-[var(--color-text-secondary)] hover:text-emerald-700 transition-colors duration-200 whitespace-nowrap group"
                 >
