@@ -10,32 +10,37 @@ interface CategoryItem {
   subtitle: string;
   href: string;
   image: string;
+  badge: string;
 }
 
 const categories: CategoryItem[] = [
   {
     title: 'Herbal Shampoos',
-    subtitle: 'Biotin & Anti-Hairfall',
+    subtitle: 'Anti-Hairfall & Biotin',
     href: '/category/haircare',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&h=300&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300&h=300&fit=crop&q=80',
+    badge: 'Flagship',
   },
   {
     title: 'Active Serums',
     subtitle: 'Rosemary Scalp Regrowth',
-    href: '/category/skincare',
-    image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&h=300&fit=crop&q=80',
-  },
-  {
-    title: 'Scalp Therapy',
-    subtitle: 'Neem & Anti-Dandruff',
     href: '/category/haircare',
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=300&h=300&fit=crop&q=80',
+    badge: 'Popular',
   },
   {
-    title: 'Radiance & Glow',
+    title: 'Anti-Dandruff Rituals',
+    subtitle: 'Neem & Tea Tree Care',
+    href: '/category/haircare',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&h=300&fit=crop&q=80',
+    badge: 'Purifying',
+  },
+  {
+    title: 'Radiance Face Serums',
     subtitle: 'Hyaluronic & Vitamin C',
     href: '/category/skincare',
-    image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=300&h=300&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop&q=80',
+    badge: 'Glass Skin',
   },
 ];
 
@@ -48,7 +53,7 @@ export function JenpharmCategoryBanners() {
             <Link
               key={cat.title}
               href={cat.href}
-              className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#f8faf9] border border-slate-200/70 hover:border-emerald-600 hover:bg-[#edf5f0] transition-all duration-200 group active:scale-[0.98] cursor-pointer shadow-2xs"
+              className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#f8faf9] border border-slate-200/80 hover:border-emerald-700 hover:bg-[#edf5f0] transition-all duration-200 group active:scale-[0.98] cursor-pointer shadow-2xs"
             >
               {/* Circular Thumbnail */}
               <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-white shrink-0 border border-slate-200 shadow-2xs">
@@ -63,9 +68,11 @@ export function JenpharmCategoryBanners() {
 
               {/* Text */}
               <div className="min-w-0 flex-1">
-                <h3 className="font-heading font-black text-xs sm:text-sm text-slate-900 group-hover:text-emerald-800 transition-colors truncate">
-                  {cat.title}
-                </h3>
+                <div className="flex items-center gap-1.5">
+                  <h3 className="font-heading font-black text-xs sm:text-sm text-slate-900 group-hover:text-emerald-800 transition-colors truncate">
+                    {cat.title}
+                  </h3>
+                </div>
                 <p className="text-[11px] text-slate-500 font-medium truncate mt-0.5">
                   {cat.subtitle}
                 </p>

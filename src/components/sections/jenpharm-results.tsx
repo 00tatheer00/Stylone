@@ -89,7 +89,7 @@ export function JenpharmResults() {
         <div className="mt-8 text-center">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all active:scale-95 cursor-pointer"
           >
             Read All Reviews
           </Link>

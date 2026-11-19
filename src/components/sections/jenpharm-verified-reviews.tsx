@@ -75,7 +75,7 @@ export function JenpharmVerifiedReviews() {
                 </div>
 
                 {/* Product Tag */}
-                <p className="font-heading font-black text-sm text-[#1b4b8a]">
+                <p className="font-heading font-black text-sm text-emerald-800">
                   {rev.product}
                 </p>
 

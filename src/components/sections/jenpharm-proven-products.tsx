@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, ShoppingBag, Check, ArrowRight } from 'lucide-react';
-import { Container } from '@/components/ui';
+import { Container, useToast } from '@/components/ui';
 import { useCart } from '@/hooks/use-cart';
 import { formatPrice } from '@/lib/utils';
 import type { Product } from '@/types/product';
@@ -16,6 +16,7 @@ interface JenpharmProvenProductsProps {
 export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps) {
   const [activeTab, setActiveTab] = useState<'all' | 'bestseller' | 'hairfall' | 'shampoo' | 'serum'>('all');
   const { addItem } = useCart();
+  const toast = useToast();
   const [addedIds, setAddedIds] = useState<Record<string, boolean>>({});
 
   const filterTabs = [
@@ -49,6 +50,7 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
       quantity: 1,
     });
 
+    toast.success(`Added ${product.name} to your cart!`, 'Bag Updated');
     setAddedIds((prev) => ({ ...prev, [product.id]: true }));
     setTimeout(() => {
       setAddedIds((prev) => ({ ...prev, [product.id]: false }));

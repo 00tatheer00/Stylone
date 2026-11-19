@@ -67,7 +67,7 @@ export function JenpharmCelebFavourites() {
                     quantity: 1,
                   });
                 }}
-                className="shrink-0 px-3.5 py-2 rounded-xl bg-[#1b4b8a] hover:bg-[#153a6b] text-white text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer flex items-center gap-1"
+                className="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer flex items-center gap-1"
               >
                 <ShoppingBag size={12} />
                 <span>Add | Rs. 1,850</span>
@@ -114,7 +114,7 @@ export function JenpharmCelebFavourites() {
                     quantity: 1,
                   });
                 }}
-                className="shrink-0 px-3.5 py-2 rounded-xl bg-[#1b4b8a] hover:bg-[#153a6b] text-white text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer flex items-center gap-1"
+                className="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white text-[11px] font-bold shadow-xs active:scale-95 cursor-pointer flex items-center gap-1"
               >
                 <ShoppingBag size={12} />
                 <span>Add | Rs. 2,650</span>
@@ -128,7 +128,7 @@ export function JenpharmCelebFavourites() {
           <p className="font-heading text-base sm:text-lg font-bold text-slate-800 italic leading-relaxed">
             &ldquo;Rooted in botanical science, driven by clinical results, and crafted with so much love for your hair &amp; skin. We&apos;re so grateful to be part of your daily ritual.&rdquo;
           </p>
-          <p className="text-xs sm:text-sm font-extrabold text-[#1b4b8a] flex items-center justify-center gap-1">
+          <p className="text-xs sm:text-sm font-extrabold text-emerald-800 flex items-center justify-center gap-1">
             <span>With love, Team STYLONE</span>
             <span className="text-rose-500">🤍</span>
           </p>
