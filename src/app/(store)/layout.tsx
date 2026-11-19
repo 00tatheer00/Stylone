@@ -4,10 +4,11 @@ import { Footer } from '@/components/layout/footer';
 import { CartProvider } from '@/hooks/use-cart';
 import { WishlistProvider } from '@/hooks/use-wishlist';
 import { AuthProvider } from '@/hooks/use-auth';
+import { ToastProvider } from '@/components/ui';
 
 /**
  * (store) route group layout — Public storefront pages.
- * Includes announcement bar, header, footer, auth, cart, and wishlist context.
+ * Includes announcement bar, header, footer, auth, cart, wishlist and toast context.
  */
 export default function StoreLayout({
   children,
@@ -15,15 +16,17 @@ export default function StoreLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <AnnouncementBar />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </WishlistProvider>
-      </CartProvider>
-    </AuthProvider>
+    <ToastProvider>
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <AnnouncementBar />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
+    </ToastProvider>
   );
 }

@@ -2,6 +2,7 @@
  * STYLONE — Temporary demonstration product data
  *
  * Re-exports the unified typed products and maintains demo mock structures.
+ * Focused on core hero lines: Herbal & Anti-Hairfall Shampoos and Active Serums.
  */
 
 import type { DemoCategory, DemoTestimonial, DemoBenefit } from '@/types/demo';
@@ -11,86 +12,86 @@ export const demoProducts = products;
 
 export const demoCategories: DemoCategory[] = [
   {
-    name: 'Skincare',
-    slug: 'skincare',
-    description: 'Premium cleansers, serums & moisturizers',
-    image: 'https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=600&h=700&fit=crop&q=80',
-  },
-  {
-    name: 'Makeup',
-    slug: 'makeup',
-    description: 'Foundations, lipsticks & palettes',
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=700&fit=crop&q=80',
-  },
-  {
-    name: 'Haircare',
+    name: 'Herbal Shampoos',
     slug: 'haircare',
-    description: 'Shampoos, treatments & styling',
-    image: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=600&h=700&fit=crop&q=80',
+    description: 'Anti-hairfall, herbal & sulfate-free cleansers',
+    image: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=800&h=1000&fit=crop&q=80',
   },
   {
-    name: 'Beauty Accessories',
+    name: 'Botanical Serums',
+    slug: 'skincare',
+    description: 'Active face glow & hair growth scalp serums',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=1000&fit=crop&q=80',
+  },
+  {
+    name: 'Anti-Hairfall Care',
+    slug: 'haircare',
+    description: 'Rosemary scalp tonics, oils & hair masks',
+    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=800&h=1000&fit=crop&q=80',
+  },
+  {
+    name: 'Radiance Skincare',
+    slug: 'skincare',
+    description: 'Ceramide creams, mineral sunscreens & toners',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=1000&fit=crop&q=80',
+  },
+  {
+    name: 'Luxury Accessories',
     slug: 'beauty-accessories',
-    description: 'Brushes, tools & organisers',
-    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=700&fit=crop&q=80',
-  },
-  {
-    name: 'Personal Care',
-    slug: 'personal-care',
-    description: 'Body care & self-care essentials',
-    image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=700&fit=crop&q=80',
+    description: 'Scalp massagers, jade rollers & applicator tools',
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=1000&fit=crop&q=80',
   },
 ];
 
 export const demoBenefits: DemoBenefit[] = [
   {
-    title: 'Carefully Selected',
-    description: 'Every product is hand-picked and quality-checked before it reaches you.',
+    title: '100% Herbal & Pure',
+    description: 'Formulated with organic cold-pressed botanicals, rosemary, onion extract, and pure essential oils.',
     icon: 'sparkles',
   },
   {
-    title: 'Quality Focused',
-    description: 'We source from trusted brands and inspect every item in our facility.',
+    title: 'Clinical Anti-Hairfall',
+    description: 'Proven scalp stimulation with caffeine, biotin, and peptides to reduce hair shedding.',
     icon: 'shield',
   },
   {
-    title: 'Convenient Delivery',
-    description: 'Fast, reliable delivery across Pakistan with careful packaging.',
+    title: 'Express COD Delivery',
+    description: 'Speedy courier dispatch across Karachi, Lahore, Islamabad, and nationwide in Pakistan.',
     icon: 'truck',
   },
   {
-    title: 'Customer First',
-    description: 'Dedicated support to help you find the perfect products for your needs.',
+    title: 'Safe & Cruelty Free',
+    description: 'Completely free from harsh sulfates, parabens, mineral oils, and synthetic silicones.',
     icon: 'heart',
   },
 ];
 
 export const demoTestimonials: DemoTestimonial[] = [
   {
-    id: 't-1',
-    name: 'Ayesha R.',
-    text: 'The packaging was beautiful and the products arrived in perfect condition. Very impressed with the quality.',
+    id: 'test-1',
+    name: 'Ayesha Khan, Lahore',
     rating: 5,
+    text: 'The Herbal Anti-Hairfall Shampoo and Rosemary Serum completely stopped my postpartum hair thinning within 4 weeks. My scalp feels invigorated and healthy!',
   },
   {
-    id: 't-2',
-    name: 'Fatima K.',
-    text: 'Finally a beauty store in Pakistan that feels premium. The skincare selection is excellent.',
+    id: 'test-2',
+    name: 'Fatima Zahra, Karachi',
     rating: 5,
+    text: 'STYLONE Vitamin C 15% Serum is hands down the best serum in Pakistan. It faded my dark acne marks without any stinging. Fast delivery too!',
   },
   {
-    id: 't-3',
-    name: 'Sana M.',
-    text: 'Quick delivery and genuine products. STYLONE has become my go-to for beauty shopping.',
-    rating: 4,
+    id: 'test-3',
+    name: 'Dr. Mariam Bilal, Islamabad',
+    rating: 5,
+    text: 'As a dermatologist, I appreciate the clean ingredient lists. The Keratin sulfate-free shampoo leaves hair silky without stripping natural oils.',
   },
 ];
 
-export const demoSocialImages = [
-  'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop&q=75',
-  'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300&h=300&fit=crop&q=75',
-  'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=300&fit=crop&q=75',
-  'https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=300&h=300&fit=crop&q=75',
-  'https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=300&h=300&fit=crop&q=75',
-  'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop&q=75',
+export const demoSocialImages: string[] = [
+  'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&h=600&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop&q=80',
 ];

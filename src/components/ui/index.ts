@@ -37,3 +37,6 @@ export type { LoadingIndicatorProps } from './loading-indicator';
 
 export { Breadcrumbs } from './breadcrumbs';
 export type { BreadcrumbItem } from './breadcrumbs';
+
+export { ToastProvider, useToast, toast } from './toast';
+export type { ToastItem, ToastType } from './toast';

@@ -6,7 +6,7 @@ interface AnnouncementBarProps {
 }
 
 function AnnouncementBar({
-  message = 'Free express delivery across Pakistan on orders above Rs. 3,000 — 100% Authentic & Halal Certified',
+  message = '🌿 100% Herbal & Sulfate-Free Shampoos & Glow Serums — Free Express Delivery Nationwide on Rs. 3,000+',
 }: AnnouncementBarProps) {
   return (
     <div className="bg-gradient-to-r from-emerald-800 via-green-700 to-emerald-900 text-white py-2 text-xs sm:text-sm font-medium tracking-wide shadow-xs relative overflow-hidden border-b border-emerald-600/30">

@@ -49,12 +49,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'inline-flex items-center justify-center font-medium rounded-[var(--radius-md)]',
-          'transition-all duration-200',
-          'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]',
-          'disabled:opacity-50 disabled:pointer-events-none',
+          'inline-flex items-center justify-center font-medium rounded-xl',
+          'transition-all duration-150 ease-out cursor-pointer',
+          'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500',
+          'disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed',
           'select-none whitespace-nowrap',
-          'active:scale-[0.97]',
+          'active:scale-[0.95] active:brightness-95',
           variantStyles[variant],
           sizeStyles[size],
           fullWidth && 'w-full',

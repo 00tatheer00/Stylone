@@ -164,6 +164,30 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+button:active:not(:disabled),
+[role="button"]:active:not(:disabled),
+a:active {
+  transform: scale(0.97);
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 /* ─────────────────────────────────────────────

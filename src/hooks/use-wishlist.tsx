@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, useState, useMemo, useCall
 import { products } from '@/data/products';
 import { Product } from '@/types/product';
 import { createBrowserClient, isSupabaseConfigured } from '@/lib/supabase';
+import { toast } from '@/components/ui';
 
 const WISHLIST_STORAGE_KEY = 'stylone_wishlist_v1';
 
@@ -64,6 +65,11 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
   const addToWishlist = useCallback(
     async (productId: string) => {
       setWishlistIds((prev) => (prev.includes(productId) ? prev : [...prev, productId]));
+      const product = products.find((p) => p.id === productId);
+      toast.success(
+        product ? `"${product.name}" saved to wishlist!` : 'Product saved to wishlist!',
+        'Wishlist Updated'
+      );
 
       // If Supabase is connected and user is logged in, optionally sync to DB
       if (isSupabaseConfigured()) {
@@ -87,6 +93,11 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
   const removeFromWishlist = useCallback(
     async (productId: string) => {
       setWishlistIds((prev) => prev.filter((id) => id !== productId));
+      const product = products.find((p) => p.id === productId);
+      toast.info(
+        product ? `"${product.name}" removed from wishlist.` : 'Item removed from wishlist.',
+        'Wishlist Updated'
+      );
 
       if (isSupabaseConfigured()) {
         try {

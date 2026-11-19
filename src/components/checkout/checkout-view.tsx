@@ -12,7 +12,7 @@ import {
   Loader2,
   Lock,
 } from 'lucide-react';
-import { Container } from '@/components/ui';
+import { Container, toast } from '@/components/ui';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/use-auth';
 import { CheckoutSummary } from './checkout-summary';
@@ -112,10 +112,15 @@ export function CheckoutView() {
 
       const res = await placeOrderAction(payload);
       if (!res.success) {
-        alert(res.error || 'Failed to place order.');
+        toast.error(res.error || 'Failed to place order. Please check details.', 'Checkout Error');
         setIsSubmitting(false);
         return;
       }
+
+      toast.success(
+        `Order #${res.orderNumber} confirmed! We will dispatch via Express Courier.`,
+        'Order Successful'
+      );
 
       // Store confirmed order for immediate preview on confirmation screen
       const orderSnapshot: DemoOrder = {

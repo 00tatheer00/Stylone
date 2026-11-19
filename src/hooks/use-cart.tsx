@@ -15,6 +15,7 @@ import {
   validateAndApplyCoupon,
 } from '@/lib/coupon';
 import { defaultShippingConfig, calculateShippingFee, getRemainingForFreeShipping } from '@/lib/shipping';
+import { toast } from '@/components/ui';
 
 export interface CartItem {
   id: string;
@@ -179,6 +180,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         },
       ];
     });
+    toast.success(`"${newItem.name}" added to shopping bag!`, 'Added to Bag');
   }, []);
 
   const updateQuantity = useCallback((id: string, newQty: number) => {
@@ -191,7 +193,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const removeItem = useCallback((id: string) => {
-    setItems((prev) => prev.filter((i) => i.id !== id));
+    setItems((prev) => {
+      const item = prev.find((i) => i.id === id);
+      if (item) {
+        toast.info(`"${item.name}" removed from bag.`, 'Bag Updated');
+      }
+      return prev.filter((i) => i.id !== id);
+    });
   }, []);
 
   const clearCart = useCallback(() => {
@@ -203,6 +211,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     } catch {
       // Ignore storage errors
     }
+    toast.info('All items cleared from your bag.', 'Bag Cleared');
   }, []);
 
   const applyCoupon = useCallback(
@@ -216,8 +225,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
           description: res.coupon.description,
           minPurchase: 0, // already validated
         });
+        toast.success(res.message, 'Coupon Applied');
         return { success: true, message: res.message };
       }
+      toast.error(res.message, 'Coupon Error');
       return { success: false, message: res.message };
     },
     [subtotal]
@@ -225,6 +236,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removeCoupon = useCallback(() => {
     setCoupon(null);
+    toast.info('Promotional coupon removed.', 'Coupon Removed');
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Container } from '@/components/ui';
+import { Container, toast } from '@/components/ui';
 import { Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -17,6 +17,7 @@ function Newsletter() {
     if (!email.trim()) {
       setStatus('error');
       setErrorMsg('Please enter your email address.');
+      toast.error('Please enter your email address.', 'Newsletter');
       return;
     }
 
@@ -24,11 +25,13 @@ function Newsletter() {
     if (!emailRegex.test(email)) {
       setStatus('error');
       setErrorMsg('Please enter a valid email address.');
+      toast.error('Please enter a valid email address.', 'Newsletter');
       return;
     }
 
     // Demo only — no actual subscription
     setStatus('success');
+    toast.success('Thank you for subscribing to STYLONE secret beauty drops!', 'Subscribed');
     setEmail('');
   };
 

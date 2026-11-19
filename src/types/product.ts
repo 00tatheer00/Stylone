@@ -22,14 +22,20 @@ export type SkinType =
   | 'Oily'
   | 'Combination'
   | 'Sensitive'
-  | 'Normal';
+  | 'Normal'
+  | 'Dehydrated'
+  | 'Acne-Prone';
 
 export type HairType =
   | 'All Hair Types'
   | 'Dry & Damaged'
   | 'Curly & Wavy'
   | 'Fine & Limp'
-  | 'Color-Treated';
+  | 'Color-Treated'
+  | 'Thinning & Hairfall'
+  | 'Weak & Brittle'
+  | 'Dandruff Prone'
+  | 'Oily Scalp';
 
 export interface ProductVariant {
   id: string;

@@ -66,36 +66,35 @@ function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 items-center min-h-[480px] sm:min-h-[520px] lg:min-h-[600px] py-10 lg:py-0">
           {/* Text */}
           <div className="relative z-10 max-w-lg">
-            <p className="hero-tag text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-accent)] mb-4">
-              Premium Beauty Collection
+            <p className="hero-tag text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 mb-4 flex items-center gap-1.5">
+              <span>🌿 Pure Botanicals & Clinical Actives</span>
             </p>
             <h1
               ref={headingRef}
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-primary)] leading-[1.1]"
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--color-text-primary)] leading-[1.1]"
             >
-              Elevate Your
+              Herbal Shampoos &amp;
               <br />
-              <span className="text-[var(--color-accent)]">Beauty</span> Routine
+              <span className="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">Glow Serums</span>
             </h1>
             <div ref={subtitleRef}>
               <p className="mt-5 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-md">
-                Discover carefully curated skincare, makeup and beauty essentials
-                from trusted brands — delivered across Pakistan.
+                Experience Pakistan&apos;s finest anti-hairfall herbal shampoo rituals, rosemary scalp regrowth tonics, and clinical face radiance serums.
               </p>
             </div>
-            <div ref={ctaRef} className="flex flex-wrap items-center gap-3 mt-8">
+            <div ref={ctaRef} className="flex flex-wrap items-center gap-3.5 mt-8">
               <Link
-                href="/shop"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium bg-[var(--color-accent)] text-white rounded-[var(--radius-md)] hover:bg-[var(--color-accent-hover)] hover:shadow-[var(--shadow-green)] transition-all duration-300 active:scale-[0.97]"
+                href="/category/haircare"
+                className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white rounded-xl hover:from-emerald-700 hover:to-green-800 hover:shadow-[var(--shadow-green)] transition-all duration-300 active:scale-[0.95]"
               >
-                Shop Now
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                <span>Shop Herbal Shampoos</span>
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/category/skincare"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-primary)] rounded-[var(--radius-md)] hover:bg-white hover:border-[var(--color-accent)] transition-all duration-300 active:scale-[0.97]"
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-bold border border-emerald-300 text-emerald-950 bg-white/80 backdrop-blur-xs rounded-xl hover:bg-white hover:border-emerald-600 transition-all duration-300 active:scale-[0.95] shadow-2xs"
               >
-                Explore Skincare
+                Explore Serums
               </Link>
             </div>
           </div>
@@ -106,15 +105,15 @@ function HeroSection() {
             className="relative h-[320px] sm:h-[400px] lg:h-[560px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[52%]"
           >
             <Image
-              src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&h=1100&fit=crop&q=85"
-              alt="Premium beauty products arrangement — editorial campaign image"
+              src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=900&h=1100&fit=crop&q=85"
+              alt="STYLONE Botanical Shampoos and Herbal Serums collection"
               fill
               sizes="(max-width: 1024px) 100vw, 52vw"
-              className="object-cover rounded-[var(--radius-xl)] lg:rounded-l-[var(--radius-xl)] lg:rounded-r-none"
+              className="object-cover rounded-2xl lg:rounded-l-3xl lg:rounded-r-none shadow-xl"
               priority
             />
             {/* Green tint overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent)]/5 to-transparent rounded-[var(--radius-xl)] lg:rounded-l-[var(--radius-xl)] lg:rounded-r-none pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 to-transparent rounded-2xl lg:rounded-l-3xl lg:rounded-r-none pointer-events-none" />
           </div>
         </div>
       </Container>
