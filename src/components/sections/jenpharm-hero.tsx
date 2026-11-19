@@ -118,31 +118,31 @@ export function JenpharmHero() {
               4. PRIMARY ACTION BUTTONS
               ───────────────────────────────────────────────────────────── */}
           <div className="pt-8 sm:pt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
-            {/* Button 1: Explore Herbal Shampoos (100% Pure White Text) */}
+            {/* Button 1: Explore Herbal Shampoos (White Button with Emerald Border & Text) */}
             <Link
               href="/category/haircare"
-              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-950/20 transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none border border-emerald-700"
+              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
             >
               <span>Explore Herbal Shampoos</span>
-              <ArrowRight size={17} className="text-white shrink-0" />
+              <ArrowRight size={17} className="text-[#064e3b] shrink-0" />
             </Link>
 
-            {/* Button 2: Explore Active Serums */}
+            {/* Button 2: Explore Active Serums (White Button with Emerald Border & Text) */}
             <Link
               href="/category/skincare"
-              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
+              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
             >
               <span>Explore Active Serums</span>
               <ArrowRight size={17} className="text-[#064e3b] shrink-0" />
             </Link>
 
-            {/* Button 3: View All Products */}
+            {/* Button 3: View All Products (Solid Emerald CTA) */}
             <Link
               href="/shop"
-              className="h-12 sm:h-13 px-6 sm:px-7 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 font-bold text-sm transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer select-none"
+              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-extrabold text-sm sm:text-base shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer select-none border border-emerald-700"
             >
               <span>View All Products</span>
-              <ArrowRight size={15} className="text-emerald-700 shrink-0" />
+              <ArrowRight size={16} className="text-white shrink-0" />
             </Link>
           </div>
 
