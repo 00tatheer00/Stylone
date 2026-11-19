@@ -10,6 +10,8 @@ export { JenpharmHero } from './jenpharm-hero';
 export { JenpharmCategoryBanners } from './jenpharm-category-banners';
 export { JenpharmProvenProducts } from './jenpharm-proven-products';
 export { JenpharmResults } from './jenpharm-results';
+export { ClinicalTransformationSlider } from './clinical-transformation-slider';
+export { BotanicalIngredientsShowcase } from './botanical-ingredients-showcase';
 export { JenpharmMatchQuiz } from './jenpharm-match-quiz';
 export { JenpharmTieredDeals } from './jenpharm-tiered-deals';
 export { JenpharmVerifiedReviews } from './jenpharm-verified-reviews';

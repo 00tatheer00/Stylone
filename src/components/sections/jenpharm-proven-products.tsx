@@ -120,18 +120,34 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
                   </span>
                 </div>
 
-                {/* Product Image */}
+                {/* Product Image with Secondary Image Hover Flip */}
                 <Link
                   href={`/product/${product.slug}`}
-                  className="relative block aspect-[4/5] bg-gradient-to-b from-[#f8faf9] to-white overflow-hidden p-2"
+                  className="relative block aspect-[4/5] bg-gradient-to-b from-[#f8faf9] to-white overflow-hidden p-2 group/img"
                 >
+                  {/* Primary Image */}
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     sizes="(max-width: 640px) 50vw, 25vw"
-                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                    className={`object-contain p-2 transition-all duration-500 ${
+                      product.images && product.images.length > 1
+                        ? 'group-hover/img:opacity-0 group-hover/img:scale-105'
+                        : 'group-hover:scale-105'
+                    }`}
                   />
+
+                  {/* Secondary Hover Image (Texture / Application Shot) */}
+                  {product.images && product.images.length > 1 && (
+                    <Image
+                      src={product.images[1]}
+                      alt={`${product.name} formulation`}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                      className="object-contain p-2 opacity-0 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500"
+                    />
+                  )}
                 </Link>
 
                 {/* Details */}

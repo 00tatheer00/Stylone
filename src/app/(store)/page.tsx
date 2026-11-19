@@ -5,6 +5,8 @@ import {
   JenpharmHero,
   JenpharmCategoryBanners,
   JenpharmProvenProducts,
+  ClinicalTransformationSlider,
+  BotanicalIngredientsShowcase,
   JenpharmResults,
 } from '@/components/sections';
 
@@ -27,16 +29,22 @@ export default async function HomePage() {
 
   return (
     <div className="bg-white text-slate-900">
-      {/* 1. Promotional Emerald Hero Banner with Free Gift & Trust Strip */}
+      {/* 1. Super-Premium Hero with Faded Emerald Grid & Shimmer */}
       <JenpharmHero />
 
-      {/* 2. 4 Botanical Green Category Cards */}
+      {/* 2. 4 Botanical Green Category Navigation Cards */}
       <JenpharmCategoryBanners />
 
-      {/* 3. Clinically Proven Formulations (Instant Filter Tabs & Add to Cart) */}
+      {/* 3. Clinically Proven Formulations (Instant Filter Tabs & Hover Flip) */}
       <JenpharmProvenProducts products={allProducts} />
 
-      {/* 4. Results You Can Trust (Real Customer Transformation Stories) */}
+      {/* 4. Interactive Before & After 30-Day Clinical Transformation Slider */}
+      <ClinicalTransformationSlider />
+
+      {/* 5. Star Active Botanical Ingredients Spotlight */}
+      <BotanicalIngredientsShowcase />
+
+      {/* 6. Results You Can Trust (Real Customer Transformation Stories) */}
       <JenpharmResults />
     </div>
   );

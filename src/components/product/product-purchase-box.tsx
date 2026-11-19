@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Heart, ShoppingBag, Check, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 import { cn, formatPrice } from '@/lib/utils';
 import { useCart } from '@/hooks/use-cart';
+import { useToast } from '@/components/ui';
 import { VariantSelector } from './variant-selector';
 import { StickyMobileAtc } from './sticky-mobile-atc';
 import type { Product, ProductVariant } from '@/types/product';
@@ -14,6 +15,7 @@ interface ProductPurchaseBoxProps {
 
 export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
   const { addItem } = useCart();
+  const toast = useToast();
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     product.variants && product.variants.length > 0 ? product.variants[0] : null
   );
@@ -54,6 +56,7 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
       quantity,
     });
 
+    toast.success(`Added ${quantity}x ${product.name} to your bag!`, 'Bag Updated');
     setAddedAnim(true);
     setTimeout(() => setAddedAnim(false), 2000);
   };

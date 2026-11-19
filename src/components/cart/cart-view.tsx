@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, Trash2, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Trash2, ShoppingBag, Truck, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Container, LoadingIndicator } from '@/components/ui';
 import { useCart } from '@/hooks/use-cart';
+import { formatPrice } from '@/lib/utils';
 import { CartItemRow } from './cart-item-row';
 import { CartSummary } from './cart-summary';
 import { EmptyCart } from './empty-cart';
@@ -12,6 +13,9 @@ export function CartView() {
   const {
     items,
     itemCount,
+    subtotal,
+    freeShippingRemaining,
+    freeShippingThreshold,
     updateQuantity,
     removeItem,
     clearCart,
@@ -73,6 +77,35 @@ export function CartView() {
               <Trash2 size={13} />
               <span>Clear Bag</span>
             </button>
+          </div>
+        </div>
+
+        {/* Full-Width Free Shipping & Free Gift Progress Bar */}
+        <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-white to-emerald-50 border border-emerald-200/90 shadow-2xs">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-emerald-800 text-white flex items-center justify-center shrink-0 shadow-xs">
+                {freeShippingRemaining > 0 ? <Truck size={15} /> : <CheckCircle2 size={16} />}
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-black text-slate-900 leading-tight">
+                  {freeShippingRemaining > 0 ? (
+                    <>Add <span className="text-emerald-800 font-black">{formatPrice(freeShippingRemaining)}</span> more to unlock <strong>FREE Express Delivery</strong> nationwide!</>
+                  ) : (
+                    <span className="text-emerald-800 font-black">🎉 Awesome! You have unlocked FREE Express Delivery across Pakistan!</span>
+                  )}
+                </p>
+                <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                  Orders of {formatPrice(freeShippingThreshold)}+ qualify for free express delivery &amp; complimentary botanical sample.
+                </p>
+              </div>
+            </div>
+            <div className="w-full sm:w-48 bg-slate-200 rounded-full h-2.5 overflow-hidden shrink-0">
+              <div
+                className="bg-gradient-to-r from-emerald-600 to-green-500 h-full rounded-full transition-all duration-500"
+                style={{ width: `${Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100))}%` }}
+              />
+            </div>
           </div>
         </div>
 
