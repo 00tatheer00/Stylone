@@ -1,0 +1,9 @@
+-- STYLONE Database Migrations
+-- This folder is reserved for Supabase migration files.
+-- The business database schema will be created in Phase 2+.
+--
+-- To create a new migration:
+--   supabase migration new <migration_name>
+--
+-- To apply migrations:
+--   supabase db push
