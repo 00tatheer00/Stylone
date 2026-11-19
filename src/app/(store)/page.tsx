@@ -5,12 +5,7 @@ import {
   JenpharmHero,
   JenpharmCategoryBanners,
   JenpharmProvenProducts,
-  JenpharmTieredDeals,
   JenpharmResults,
-  JenpharmMatchQuiz,
-  JenpharmVerifiedReviews,
-  JenpharmCelebFavourites,
-  JenpharmFooter,
 } from '@/components/sections';
 
 export const metadata: Metadata = {
@@ -32,29 +27,17 @@ export default async function HomePage() {
 
   return (
     <div className="bg-white text-slate-900">
-      {/* 1. Promotional Hero Banner (Jenpharm style with Free Enzyme/Serum offer & Trust strip) */}
+      {/* 1. Promotional Emerald Hero Banner with Free Gift & Trust Strip */}
       <JenpharmHero />
 
-      {/* 2. Visual Category Banners (4 Iconic Colored Cards with models) */}
+      {/* 2. 4 Botanical Green Category Cards */}
       <JenpharmCategoryBanners />
 
-      {/* 3. Clinically Proven Results Filterable Products (Filter Tabs, Ratings & Solid Add to Cart) */}
+      {/* 3. Clinically Proven Formulations (Instant Filter Tabs & Add to Cart) */}
       <JenpharmProvenProducts products={allProducts} />
 
-      {/* 4. Tiered Savings Deal Box (10% Off 3+ items, Free Gift on 2,500 Rs., Free Shipping) */}
-      <JenpharmTieredDeals />
-
-      {/* 5. Results You Can Trust (Real Customer Transformation Stories with timeframe pills) */}
+      {/* 4. Results You Can Trust (Real Customer Transformation Stories) */}
       <JenpharmResults />
-
-      {/* 6. Find Your Perfect Match (Diagnostic Routine / Hair & Skin Analysis Box) */}
-      <JenpharmMatchQuiz />
-
-      {/* 7. Verified Customer Reviews (English & Urdu Community Proof) */}
-      <JenpharmVerifiedReviews />
-
-      {/* 8. Celeb / Community Favourites (Video Reels Showcase with bottom Add to Cart dock) */}
-      <JenpharmCelebFavourites />
     </div>
   );
 }

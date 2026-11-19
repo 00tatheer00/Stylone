@@ -119,12 +119,12 @@ export function JenpharmFooter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2.5 rounded-full border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-[#1b4b8a]"
+              className="flex-1 px-4 py-2.5 rounded-full border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600"
               required
             />
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-full bg-[#1b4b8a] hover:bg-[#153a6b] text-white text-xs font-bold transition-all shrink-0 active:scale-95 cursor-pointer"
+              className="px-6 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition-all shrink-0 active:scale-95 cursor-pointer"
             >
               Sign Up Now
             </button>
@@ -140,13 +140,13 @@ export function JenpharmFooter() {
                 <button
                   type="button"
                   onClick={() => toggleSection(sec.title)}
-                  className="w-full flex items-center justify-between text-left font-heading text-sm sm:text-base font-bold text-slate-900 hover:text-[#1b4b8a] transition-colors py-1 cursor-pointer select-none"
+                  className="w-full flex items-center justify-between text-left font-heading text-sm sm:text-base font-bold text-slate-900 hover:text-emerald-700 transition-colors py-1 cursor-pointer select-none"
                 >
                   <span>{sec.title}</span>
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-200 text-slate-400 ${
-                      isOpen ? 'rotate-180 text-[#1b4b8a]' : ''
+                      isOpen ? 'rotate-180 text-emerald-700' : ''
                     }`}
                   />
                 </button>
@@ -156,7 +156,7 @@ export function JenpharmFooter() {
                       <li key={link.label}>
                         <Link
                           href={link.href}
-                          className="hover:text-[#1b4b8a] transition-colors block py-1"
+                          className="hover:text-emerald-700 transition-colors block py-1"
                         >
                           {link.label}
                         </Link>
@@ -173,11 +173,11 @@ export function JenpharmFooter() {
         <div className="pt-6 border-t border-slate-200 text-center text-xs text-slate-500 space-y-2">
           <p>© 2026 STYLONE Laboratories. Handcrafted &amp; Authenticated in Pakistan.</p>
           <div className="flex items-center justify-center gap-4 text-xs font-semibold text-slate-600 pt-1">
-            <Link href="/shop" className="hover:text-[#1b4b8a]">Instagram</Link>
+            <Link href="/shop" className="hover:text-emerald-700">Instagram</Link>
             <span>•</span>
-            <Link href="/shop" className="hover:text-[#1b4b8a]">Facebook</Link>
+            <Link href="/shop" className="hover:text-emerald-700">Facebook</Link>
             <span>•</span>
-            <Link href="/shop" className="hover:text-[#1b4b8a]">TikTok</Link>
+            <Link href="/shop" className="hover:text-emerald-700">TikTok</Link>
             <span>•</span>
             <Link href="https://wa.me/923001234567" className="hover:text-emerald-600 font-bold">WhatsApp Care</Link>
           </div>

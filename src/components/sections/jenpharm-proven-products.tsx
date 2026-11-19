@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, ShoppingBag, Check, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Star, ShoppingBag, Check, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui';
 import { useCart } from '@/hooks/use-cart';
 import { formatPrice } from '@/lib/utils';
@@ -56,9 +56,9 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
+    <section className="py-12 sm:py-16 bg-white border-b border-emerald-100">
       <Container>
-        {/* Section Header (Jenpharm Style) */}
+        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
           <div className="flex items-center justify-center gap-1.5 text-amber-500 font-bold text-xs sm:text-sm">
             <div className="flex">
@@ -66,7 +66,7 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
                 <Star key={i} size={14} fill="currentColor" />
               ))}
             </div>
-            <span className="text-slate-800 ml-1">2,000,000+ Happy Customers</span>
+            <span className="text-emerald-950 font-black ml-1">2,000,000+ Happy Customers</span>
           </div>
 
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
@@ -74,16 +74,16 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
           </h2>
         </div>
 
-        {/* Filter Pills (Jenpharm Style) */}
+        {/* Filter Pills */}
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 px-1">
           {filterTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer select-none ${
+              className={`shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-200 cursor-pointer select-none ${
                 activeTab === tab.id
-                  ? 'bg-[#1b4b8a] text-white shadow-md'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/20'
+                  : 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 border border-emerald-200'
               }`}
             >
               {tab.label}
@@ -91,7 +91,7 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
           ))}
         </div>
 
-        {/* Products Grid (Exact Jenpharm Card Format) */}
+        {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {filteredProducts.slice(0, 8).map((product) => {
             const hasDiscount = product.originalPrice && product.originalPrice > product.price;
@@ -103,14 +103,14 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
             return (
               <div
                 key={product.id}
-                className="group flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300"
+                className="group flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-emerald-300 transition-all duration-300"
               >
                 {/* Top Badge Strip */}
                 <div className="p-2 sm:p-2.5 flex items-center justify-between gap-1 bg-white">
-                  <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-[#ede9fe] text-[#6d28d9] truncate max-w-[60%]">
+                  <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-emerald-100 text-emerald-800 truncate max-w-[60%]">
                     {product.hairType?.[1] || product.category}
                   </span>
-                  <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider bg-[#1b4b8a] text-white shadow-2xs">
+                  <span className="px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider bg-emerald-700 text-white shadow-2xs">
                     {product.badge || (product.isBestSeller ? 'Best Seller' : 'New')}
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
                 {/* Product Image */}
                 <Link
                   href={`/product/${product.slug}`}
-                  className="relative block aspect-[4/5] bg-gradient-to-b from-slate-50 to-white overflow-hidden p-2"
+                  className="relative block aspect-[4/5] bg-gradient-to-b from-emerald-50/40 to-white overflow-hidden p-2"
                 >
                   <Image
                     src={product.image}
@@ -141,17 +141,17 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
                     <span className="text-[11px] font-bold text-slate-500">(82)</span>
                   </div>
 
-                  {/* Title */}
+                  {/* Title - Deep Black/Charcoal, 100% Readable */}
                   <Link
                     href={`/product/${product.slug}`}
-                    className="block font-heading text-xs sm:text-sm font-bold text-slate-900 hover:text-[#1b4b8a] transition-colors line-clamp-2 min-h-[2.2rem] leading-snug"
+                    className="block font-heading text-xs sm:text-sm font-extrabold text-slate-900 hover:text-emerald-700 transition-colors line-clamp-2 min-h-[2.2rem] leading-snug"
                   >
                     {product.name}
                   </Link>
 
-                  {/* Pricing (Jenpharm Style: Rs. 988 with discount) */}
+                  {/* Pricing */}
                   <div className="flex items-center justify-center gap-2 mt-2 mb-3">
-                    <span className="font-extrabold text-sm sm:text-base text-slate-900">
+                    <span className="font-black text-sm sm:text-base text-emerald-950">
                       {formatPrice(product.price)}
                     </span>
                     {hasDiscount && (
@@ -166,14 +166,14 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
                     )}
                   </div>
 
-                  {/* Full-Width Jenpharm Solid Button: "Add to cart" */}
+                  {/* Full-Width Solid Emerald Button: "Add to cart" */}
                   <button
                     type="button"
                     onClick={() => handleAddToCart(product)}
-                    className={`w-full py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-white transition-all duration-200 select-none shadow-sm active:scale-95 cursor-pointer mt-auto flex items-center justify-center gap-1.5 ${
+                    className={`w-full py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white transition-all duration-200 select-none shadow-xs active:scale-95 cursor-pointer mt-auto flex items-center justify-center gap-1.5 ${
                       isAdded
                         ? 'bg-emerald-600'
-                        : 'bg-[#1b4b8a] hover:bg-[#153a6b]'
+                        : 'bg-emerald-700 hover:bg-emerald-800'
                     }`}
                   >
                     {isAdded ? (
@@ -194,11 +194,11 @@ export function JenpharmProvenProducts({ products }: JenpharmProvenProductsProps
           })}
         </div>
 
-        {/* View All Products Button */}
+        {/* View All Products Button - Crisp White with Emerald Border & Dark Emerald Text */}
         <div className="mt-10 sm:mt-12 text-center">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 hover:bg-[#1b4b8a] text-white font-bold text-sm sm:text-base shadow-md transition-all duration-200 active:scale-95 group cursor-pointer"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-white border-2 border-emerald-600 text-emerald-950 hover:bg-emerald-700 hover:text-white font-extrabold text-sm sm:text-base shadow-sm hover:shadow-lg transition-all duration-200 active:scale-95 group cursor-pointer"
           >
             <span>View All Clinical Products</span>
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />

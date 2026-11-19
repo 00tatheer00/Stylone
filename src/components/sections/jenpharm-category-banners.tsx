@@ -19,34 +19,34 @@ const banners: CategoryBanner[] = [
     subtitle: 'Herbal Anti-Hairfall & Biotin Growth',
     href: '/category/haircare',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#f472b6] via-[#fb7185] to-[#e11d48]',
+    gradient: 'from-[#064e3b] via-[#047857] to-[#0f766e]',
   },
   {
     title: 'Shop Serums',
     subtitle: 'Rosemary Scalp Regrowth & Active Glow',
     href: '/category/skincare',
     image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#38bdf8] via-[#0ea5e9] to-[#0284c7]',
+    gradient: 'from-[#047857] via-[#059669] to-[#10b981]',
   },
   {
     title: 'Shop Scalp Therapy',
     subtitle: 'Anti-Dandruff & Follicle Rejuvenation',
     href: '/category/haircare',
     image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#bef264] via-[#84cc16] to-[#4d7c0f]',
+    gradient: 'from-[#065f46] via-[#047857] to-[#115e59]',
   },
   {
     title: 'Shop Moisturizers & Glow',
-    subtitle: 'Hyaluronic Hydration & Skin Barrier Repair',
+    subtitle: 'Hyaluronic Hydration & Barrier Repair',
     href: '/category/skincare',
     image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=500&h=300&fit=crop&q=80',
-    gradient: 'from-[#fdba74] via-[#fb923c] to-[#ea580c]',
+    gradient: 'from-[#059669] via-[#10b981] to-[#34d399]',
   },
 ];
 
 export function JenpharmCategoryBanners() {
   return (
-    <section className="py-6 sm:py-8 bg-[#f8fafc]">
+    <section className="py-6 sm:py-8 bg-[#f8faf9]">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {banners.map((item) => (
@@ -57,17 +57,17 @@ export function JenpharmCategoryBanners() {
             >
               {/* Text */}
               <div className="relative z-10 max-w-[62%]">
-                <h3 className="font-heading text-lg sm:text-xl font-black tracking-tight text-white leading-tight drop-shadow-xs">
+                <h3 className="font-heading text-lg sm:text-xl font-black tracking-tight text-white leading-tight drop-shadow-sm">
                   {item.title}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-white/90 line-clamp-1 mt-0.5 font-medium">
+                <p className="text-[11px] sm:text-xs text-emerald-100 line-clamp-1 mt-0.5 font-semibold">
                   {item.subtitle}
                 </p>
               </div>
 
               {/* Model / Product Image */}
               <div className="relative w-20 sm:w-24 h-full shrink-0 flex items-center justify-center">
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white/50 shadow-md">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white/60 shadow-md">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -78,8 +78,8 @@ export function JenpharmCategoryBanners() {
                 </div>
               </div>
 
-              {/* White Round Arrow Button (Jenpharm signature icon button) */}
-              <div className="absolute right-3 bottom-3 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 w-8 h-8 rounded-full bg-white text-slate-800 flex items-center justify-center shadow-md group-hover:bg-slate-900 group-hover:text-white transition-colors duration-200">
+              {/* White Round Arrow Button */}
+              <div className="absolute right-3 bottom-3 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 w-8 h-8 rounded-full bg-white text-emerald-900 flex items-center justify-center shadow-md group-hover:bg-emerald-950 group-hover:text-white transition-colors duration-200">
                 <ChevronRight size={18} className="stroke-[2.5]" />
               </div>
             </Link>

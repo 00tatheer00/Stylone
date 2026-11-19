@@ -80,14 +80,19 @@ function Header() {
             {/* Wordmark Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 font-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--color-text-primary)] group absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 transition-transform duration-300"
+              className="flex items-center gap-2.5 font-heading group absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 transition-transform duration-300"
             >
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-green-400 flex items-center justify-center text-white shadow-xs group-hover:scale-105 group-hover:rotate-6 transition-all duration-300">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-green-500 flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-all duration-300">
                 <Sparkles size={16} />
               </div>
-              <span className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-700 bg-clip-text text-transparent group-hover:from-emerald-700 group-hover:to-green-500 transition-all">
-                STYLONE
-              </span>
+              <div className="flex flex-col">
+                <span className="font-heading text-xl sm:text-2xl font-black tracking-tight text-emerald-950 leading-none">
+                  STYLONE
+                </span>
+                <span className="text-[9px] font-extrabold uppercase tracking-widest text-emerald-700 leading-tight">
+                  Clinical Botanicals
+                </span>
+              </div>
             </Link>
 
             {/* Desktop links */}
