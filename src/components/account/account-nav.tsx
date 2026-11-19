@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -28,7 +29,7 @@ const navItems: AccountNavItem[] = [
   { label: 'Wishlist', href: '/account/wishlist', icon: Heart },
 ];
 
-export function AccountNav() {
+function AccountNavInner() {
   const pathname = usePathname();
   const { count: wishlistCount } = useWishlist();
   const { signOut } = useAuth();
@@ -115,5 +116,13 @@ export function AccountNav() {
         })}
       </div>
     </nav>
+  );
+}
+
+export function AccountNav() {
+  return (
+    <Suspense fallback={null}>
+      <AccountNavInner />
+    </Suspense>
   );
 }

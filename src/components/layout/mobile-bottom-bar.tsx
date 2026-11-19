@@ -1,12 +1,13 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, Sparkles, Droplets, ShoppingBag, User } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { cn } from '@/lib/utils';
 
-export function MobileBottomBar() {
+function MobileBottomBarInner() {
   const pathname = usePathname();
   const { itemCount } = useCart();
 
@@ -60,59 +61,42 @@ export function MobileBottomBar() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = item.isActive;
-
           return (
             <Link
               key={item.label}
               href={item.href}
               className={cn(
-                'relative flex flex-col items-center justify-center py-1 rounded-xl transition-all duration-200 select-none active:scale-90',
-                active
-                  ? 'text-emerald-700 font-bold'
-                  : 'text-stone-500 hover:text-emerald-700 font-medium'
+                'relative flex flex-col items-center justify-center py-1 transition-all duration-150',
+                active ? 'text-emerald-800 font-bold scale-105' : 'text-slate-500 hover:text-slate-900',
               )}
             >
               <div className="relative">
-                <Icon
-                  size={20}
-                  className={cn(
-                    'transition-all duration-200',
-                    active ? 'stroke-[2.5] scale-110 text-emerald-700' : 'stroke-[1.75]'
-                  )}
-                />
-
-                {/* Cart Item Count Badge */}
+                <Icon size={20} strokeWidth={active ? 2.5 : 1.8} />
                 {typeof item.count === 'number' && item.count > 0 && (
-                  <span className="absolute -top-1.5 -right-2.5 min-w-[18px] h-[18px] px-1 flex items-center justify-center text-[10px] font-extrabold bg-emerald-600 text-white rounded-full shadow-xs animate-scale-in">
-                    {item.count > 9 ? '9+' : item.count}
+                  <span className="absolute -top-1.5 -right-2 flex items-center justify-center min-w-4 h-4 px-1 text-[9px] font-black bg-emerald-700 text-white rounded-full leading-none shadow-xs">
+                    {item.count > 99 ? '99+' : item.count}
                   </span>
                 )}
-
-                {/* Star / Glow Pill Badge */}
-                {item.badge && (
-                  <span className="absolute -top-1.5 -right-3 px-1 py-px text-[8px] font-extrabold uppercase tracking-tighter bg-amber-400 text-emerald-950 rounded-full shadow-2xs leading-none">
-                    {item.badge}
-                  </span>
+                {item.badge && !active && (
+                  <span className="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-emerald-600" />
                 )}
               </div>
-
-              <span
-                className={cn(
-                  'text-[10px] mt-1 tracking-tight',
-                  active ? 'text-emerald-900 font-bold' : 'text-stone-500'
-                )}
-              >
-                {item.label}
-              </span>
-
-              {/* Active bottom emerald indicator line */}
+              <span className="text-[10px] tracking-tight mt-0.5">{item.label}</span>
               {active && (
-                <span className="absolute bottom-0 w-8 h-0.5 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full" />
+                <span className="absolute bottom-0 w-8 h-0.5 bg-emerald-800 rounded-full" />
               )}
             </Link>
           );
         })}
       </div>
     </nav>
+  );
+}
+
+export function MobileBottomBar() {
+  return (
+    <Suspense fallback={null}>
+      <MobileBottomBarInner />
+    </Suspense>
   );
 }

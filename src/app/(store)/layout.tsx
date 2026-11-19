@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { AnnouncementBar, Header, Footer, MobileBottomBar } from '@/components/layout';
 import { CartProvider } from '@/hooks/use-cart';
 import { WishlistProvider } from '@/hooks/use-wishlist';
@@ -22,7 +23,9 @@ export default function StoreLayout({
             <Header />
             <main className="flex-1 pb-16 lg:pb-0">{children}</main>
             <Footer />
-            <MobileBottomBar />
+            <Suspense fallback={null}>
+              <MobileBottomBar />
+            </Suspense>
           </WishlistProvider>
         </CartProvider>
       </AuthProvider>
