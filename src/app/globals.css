@@ -5,6 +5,10 @@
    ───────────────────────────────────────────── */
 
 :root {
+  /* Fonts */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
   /* Backgrounds */
   --color-bg-primary: #F6F0E8;
   --color-bg-secondary: #EDE4D9;
