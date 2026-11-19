@@ -117,33 +117,32 @@ export function JenpharmHero() {
           {/* ─────────────────────────────────────────────────────────────
               4. PRIMARY ACTION BUTTONS
               ───────────────────────────────────────────────────────────── */}
-          <div className="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-xl mx-auto">
+          <div className="pt-8 sm:pt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
             {/* Button 1: Explore Herbal Shampoos (100% Pure White Text) */}
             <Link
               href="/category/haircare"
-              className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-black text-sm sm:text-base shadow-xl shadow-emerald-950/20 transition-all duration-200 active:scale-95 group cursor-pointer overflow-hidden border border-emerald-700 select-none"
+              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-950/20 transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none border border-emerald-700"
             >
-              {/* Subtle hover shine sweep */}
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-              <span className="text-white font-black tracking-wide">Explore Herbal Shampoos</span>
-              <ArrowRight size={18} className="text-white transition-transform group-hover:translate-x-1" />
+              <span>Explore Herbal Shampoos</span>
+              <ArrowRight size={17} className="text-white shrink-0" />
             </Link>
 
             {/* Button 2: Explore Active Serums */}
             <Link
               href="/category/skincare"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-emerald-50 text-emerald-950 border-2 border-emerald-800 font-black text-sm sm:text-base shadow-sm transition-all duration-200 active:scale-95 group cursor-pointer select-none"
+              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
             >
-              <span className="text-emerald-950 font-black tracking-wide">Explore Active Serums</span>
-              <ArrowRight size={18} className="text-emerald-800 transition-transform group-hover:translate-x-1" />
+              <span>Explore Active Serums</span>
+              <ArrowRight size={17} className="text-[#064e3b] shrink-0" />
             </Link>
 
             {/* Button 3: View All Products */}
             <Link
               href="/shop"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-6 py-4 rounded-full bg-emerald-100/70 hover:bg-emerald-200/70 text-emerald-950 border border-emerald-300 font-extrabold text-sm transition-all duration-200 active:scale-95 cursor-pointer select-none"
+              className="h-12 sm:h-13 px-6 sm:px-7 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 font-bold text-sm transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer select-none"
             >
               <span>View All Products</span>
+              <ArrowRight size={15} className="text-emerald-700 shrink-0" />
             </Link>
           </div>
 
