@@ -10,9 +10,9 @@ interface BadgeProps {
 
 const variantStyles: Record<BadgeVariant, string> = {
   default:
-    'bg-[var(--color-accent-secondary)] text-[var(--color-text-primary)]',
+    'bg-[var(--color-accent-secondary)]/30 text-[var(--color-text-primary)] border-[var(--color-accent-secondary)]',
   success:
-    'bg-green-50 text-[var(--color-success)] border-green-200',
+    'bg-green-50 text-green-700 border-green-200',
   warning:
     'bg-amber-50 text-[var(--color-warning)] border-amber-200',
   error:
@@ -27,7 +27,6 @@ function Badge({ variant = 'default', children, className }: BadgeProps) {
       className={cn(
         'inline-flex items-center rounded-full px-2.5 py-0.5',
         'text-xs font-medium border',
-        variant === 'default' ? 'border-transparent' : '',
         variantStyles[variant],
         className,
       )}

@@ -79,20 +79,20 @@ export function LoginForm() {
   };
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-sm">
+    <div className="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-100 shadow-md">
       <div className="mb-6 text-center">
-        <h1 className="font-heading text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] tracking-tight">
+        <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[var(--color-text-primary)] tracking-tight">
           Sign In
         </h1>
         <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
-          Welcome back to STYLONE
+          Welcome back to STYLONE Luxury Boutique
         </p>
       </div>
 
       <SupabaseAdvisory />
 
       {serverError && (
-        <div className="mb-6 p-3.5 rounded-[var(--radius-md)] bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-start gap-2.5">
+        <div className="mb-6 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-start gap-2.5">
           <AlertCircle size={16} className="text-rose-600 shrink-0 mt-0.5" />
           <p className="leading-relaxed">{serverError}</p>
         </div>
@@ -103,12 +103,12 @@ export function LoginForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-text-primary)] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] mb-1.5"
           >
             Email Address <span className="text-rose-500">*</span>
           </label>
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[var(--color-text-muted)]">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
               <Mail size={16} />
             </span>
             <input
@@ -123,11 +123,11 @@ export function LoginForm() {
                 if (errors.email) setErrors({ ...errors, email: '' });
               }}
               placeholder="name@example.com"
-              className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-[var(--radius-md)] border ${
+              className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border ${
                 errors.email
                   ? 'border-rose-400 bg-rose-50/30 focus:border-rose-500'
-                  : 'border-[var(--color-border-light)] bg-white focus:border-[var(--color-accent)]'
-              } text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-colors`}
+                  : 'border-emerald-200 bg-white focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20'
+              } text-[var(--color-text-primary)] placeholder-stone-400 outline-none transition-all`}
             />
           </div>
           {errors.email && (
@@ -140,19 +140,19 @@ export function LoginForm() {
           <div className="flex items-center justify-between mb-1.5">
             <label
               htmlFor="password"
-              className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-text-primary)]"
+              className="block text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)]"
             >
               Password <span className="text-rose-500">*</span>
             </label>
             <Link
               href="/forgot-password"
-              className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors underline-offset-4 hover:underline"
+              className="text-xs text-emerald-700 hover:text-emerald-800 font-semibold transition-colors underline-offset-4 hover:underline"
             >
               Forgot password?
             </Link>
           </div>
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[var(--color-text-muted)]">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
               <Lock size={16} />
             </span>
             <input
@@ -167,16 +167,16 @@ export function LoginForm() {
                 if (errors.password) setErrors({ ...errors, password: '' });
               }}
               placeholder="Enter your password"
-              className={`w-full pl-10 pr-11 py-2.5 text-sm rounded-[var(--radius-md)] border ${
+              className={`w-full pl-10 pr-11 py-2.5 text-sm rounded-xl border ${
                 errors.password
                   ? 'border-rose-400 bg-rose-50/30 focus:border-rose-500'
-                  : 'border-[var(--color-border-light)] bg-white focus:border-[var(--color-accent)]'
-              } text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none transition-colors`}
+                  : 'border-emerald-200 bg-white focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20'
+              } text-[var(--color-text-primary)] placeholder-stone-400 outline-none transition-all`}
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]"
+              className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-stone-400 hover:text-emerald-700"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -189,14 +189,14 @@ export function LoginForm() {
 
         {/* Remember Me */}
         <div className="pt-1">
-          <label className="flex items-center gap-2 cursor-pointer">
+          <label className="flex items-center gap-2 cursor-pointer select-none">
             <input
               type="checkbox"
               checked={formData.rememberMe}
               onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
-              className="h-4 w-4 rounded border-[var(--color-border-dark)] text-[var(--color-accent)] focus:ring-[var(--color-accent)] accent-[var(--color-accent)]"
+              className="h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500 accent-emerald-600"
             />
-            <span className="text-xs text-[var(--color-text-secondary)]">
+            <span className="text-xs text-stone-600 font-medium">
               Remember this device
             </span>
           </label>
@@ -206,7 +206,7 @@ export function LoginForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full mt-3 py-3 px-4 rounded-[var(--radius-md)] bg-[var(--color-text-primary)] hover:bg-[var(--color-accent)] text-white text-xs uppercase tracking-widest font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full mt-3 py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white text-xs uppercase tracking-widest font-bold transition-all shadow-sm hover:shadow-[var(--shadow-green)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <>
@@ -214,18 +214,18 @@ export function LoginForm() {
               <span>Signing In...</span>
             </>
           ) : (
-            <span>Sign In</span>
+            <span>Sign In to Stylone</span>
           )}
         </button>
       </form>
 
-      <div className="mt-6 pt-5 border-t border-[var(--color-border-light)] text-center text-xs text-[var(--color-text-secondary)]">
+      <div className="mt-6 pt-5 border-t border-emerald-100 text-center text-xs text-stone-600">
         Don&apos;t have an account?{' '}
         <Link
           href={`/register?redirectTo=${encodeURIComponent(redirectTo)}`}
-          className="font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors underline-offset-4 hover:underline"
+          className="font-bold text-emerald-700 hover:text-emerald-800 transition-colors underline-offset-4 hover:underline"
         >
-          Create Account
+          Create Free Account
         </Link>
       </div>
     </div>

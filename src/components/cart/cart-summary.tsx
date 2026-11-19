@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Tag, X, ArrowRight, ShieldCheck, Truck, Sparkles } from 'lucide-react';
+import { Tag, X, ArrowRight, ShieldCheck, Truck, CheckCircle2 } from 'lucide-react';
 import { formatPrice, cn } from '@/lib/utils';
 import { useCart } from '@/hooks/use-cart';
 
@@ -52,33 +52,36 @@ export function CartSummary() {
   );
 
   return (
-    <div className="bg-white rounded-[var(--radius-lg)] border border-[var(--color-border-light)] p-5 sm:p-6 shadow-[var(--shadow-sm)] space-y-6">
-      <h2 className="font-heading text-lg font-bold text-[var(--color-text-primary)]">
+    <div className="bg-white rounded-2xl border border-emerald-100 p-6 shadow-sm space-y-6">
+      <h2 className="font-heading text-xl font-bold text-[var(--color-text-primary)]">
         Order Summary
       </h2>
 
       {/* Free Delivery Progress */}
-      <div className="p-3.5 rounded-[var(--radius-md)] bg-[var(--color-bg-secondary)]/50 border border-[var(--color-border-light)] text-xs">
+      <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-50/80 to-green-50/40 border border-emerald-100 text-xs">
         {freeShippingRemaining > 0 ? (
           <>
-            <div className="flex items-center justify-between font-medium text-[var(--color-text-primary)] mb-1.5">
-              <span>Free Delivery Target</span>
-              <span>Add {formatPrice(freeShippingRemaining)}</span>
+            <div className="flex items-center justify-between font-semibold text-emerald-950 mb-2">
+              <span className="flex items-center gap-1.5">
+                <Truck size={14} className="text-emerald-600" />
+                <span>Free Delivery Target</span>
+              </span>
+              <span className="text-emerald-700 font-bold">Add {formatPrice(freeShippingRemaining)}</span>
             </div>
-            <div className="w-full bg-[var(--color-border)] rounded-full h-1.5 overflow-hidden">
+            <div className="w-full bg-emerald-100 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-[var(--color-accent)] h-full rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-emerald-500 to-green-400 h-full rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${freeDeliveryProgress}%` }}
               />
             </div>
-            <p className="mt-1.5 text-[11px] text-[var(--color-text-muted)]">
-              Spend {formatPrice(freeShippingThreshold)} or more to get free delivery across Pakistan.
+            <p className="mt-2 text-[11px] text-emerald-800/80 font-medium">
+              Orders of {formatPrice(freeShippingThreshold)}+ qualify for free nationwide express delivery!
             </p>
           </>
         ) : (
-          <div className="flex items-center gap-2 text-[var(--color-success)] font-medium">
-            <Sparkles size={16} />
-            <span>You&apos;ve qualified for FREE Delivery across Pakistan!</span>
+          <div className="flex items-center gap-2 text-emerald-800 font-bold">
+            <CheckCircle2 size={18} className="text-emerald-600 shrink-0" />
+            <span>Awesome! You have unlocked FREE Express Delivery!</span>
           </div>
         )}
       </div>
@@ -87,23 +90,23 @@ export function CartSummary() {
       <div>
         <label
           htmlFor="cart-coupon"
-          className="block text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] mb-2"
+          className="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-2"
         >
-          Promotional Code
+          Have a Promo Code?
         </label>
 
         {appliedCoupon ? (
-          <div className="flex items-center justify-between p-3 rounded-[var(--radius-md)] bg-emerald-50 border border-emerald-200 text-xs">
-            <div className="flex items-center gap-2 text-[var(--color-success)] font-medium">
-              <Tag size={14} />
+          <div className="flex items-center justify-between p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs">
+            <div className="flex items-center gap-2 text-emerald-800 font-semibold">
+              <Tag size={15} className="text-emerald-600" />
               <span>
-                <strong>{appliedCoupon.code}</strong> (-{formatPrice(discountAmount)})
+                <strong>{appliedCoupon.code}</strong> applied (-{formatPrice(discountAmount)})
               </span>
             </div>
             <button
               type="button"
               onClick={removeCoupon}
-              className="p-1 text-[var(--color-text-muted)] hover:text-[var(--color-error)]"
+              className="p-1 rounded-md text-stone-400 hover:text-rose-600 hover:bg-white transition-colors"
               aria-label="Remove applied coupon"
             >
               <X size={15} />
@@ -120,11 +123,11 @@ export function CartSummary() {
                 if (couponFeedback) setCouponFeedback(null);
               }}
               placeholder="e.g. WELCOME10"
-              className="flex-1 px-3 py-2 text-xs rounded-[var(--radius-md)] border border-[var(--color-border)] uppercase tracking-wider placeholder:normal-case placeholder:tracking-normal focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+              className="flex-1 px-3.5 py-2.5 text-xs rounded-xl border border-emerald-200 uppercase tracking-wider placeholder:normal-case placeholder:tracking-normal focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 font-medium"
             />
             <button
               type="submit"
-              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[var(--color-text-primary)] text-white hover:bg-[var(--color-accent-hover)] rounded-[var(--radius-md)] transition-colors whitespace-nowrap"
+              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider bg-emerald-800 text-white hover:bg-emerald-700 rounded-xl transition-all shadow-2xs whitespace-nowrap active:scale-95"
             >
               Apply
             </button>
@@ -134,61 +137,62 @@ export function CartSummary() {
         {couponFeedback && (
           <p
             className={cn(
-              'mt-2 text-xs',
+              'mt-2 text-xs font-medium',
               couponFeedback.type === 'success'
-                ? 'text-[var(--color-success)]'
-                : 'text-[var(--color-error)]'
+                ? 'text-emerald-700'
+                : 'text-rose-600'
             )}
           >
             {couponFeedback.text}
           </p>
         )}
 
-        <div className="mt-2 text-[11px] text-[var(--color-text-muted)]">
-          Demo codes: <code className="bg-gray-100 px-1 py-0.5 rounded text-[10px]">WELCOME10</code>,{' '}
-          <code className="bg-gray-100 px-1 py-0.5 rounded text-[10px]">STYLONE500</code>
+        <div className="mt-2 text-[11px] text-stone-500 flex items-center gap-1.5 flex-wrap">
+          <span>Active trial codes:</span>
+          <code className="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-mono font-semibold text-[10px]">WELCOME10</code>
+          <code className="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-mono font-semibold text-[10px]">STYLONE500</code>
         </div>
       </div>
 
-      <div className="border-t border-[var(--color-border-light)]" />
+      <div className="border-t border-emerald-100" />
 
       {/* Financial Breakdown */}
-      <dl className="space-y-2.5 text-sm">
-        <div className="flex justify-between text-[var(--color-text-secondary)]">
+      <dl className="space-y-3 text-sm">
+        <div className="flex justify-between text-stone-600">
           <dt>Subtotal</dt>
-          <dd className="font-medium text-[var(--color-text-primary)]">{formatPrice(subtotal)}</dd>
+          <dd className="font-semibold text-[var(--color-text-primary)]">{formatPrice(subtotal)}</dd>
         </div>
 
         {discountAmount > 0 && (
-          <div className="flex justify-between text-[var(--color-success)]">
+          <div className="flex justify-between text-emerald-700 font-medium">
             <dt className="flex items-center gap-1.5">
-              <span>Discount</span>
+              <span>Savings Discount</span>
               {appliedCoupon && (
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-100 font-semibold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 font-bold text-emerald-800">
                   {appliedCoupon.code}
                 </span>
               )}
             </dt>
-            <dd className="font-semibold">-{formatPrice(discountAmount)}</dd>
+            <dd className="font-bold">-{formatPrice(discountAmount)}</dd>
           </div>
         )}
 
-        <div className="flex justify-between text-[var(--color-text-secondary)]">
-          <dt>Estimated Delivery</dt>
-          <dd className="font-medium">
+        <div className="flex justify-between text-stone-600">
+          <dt>Nationwide Shipping</dt>
+          <dd className="font-semibold">
             {shippingFee === 0 ? (
-              <span className="text-[var(--color-success)] font-semibold">FREE</span>
+              <span className="text-emerald-700 font-bold uppercase tracking-wider text-xs bg-emerald-100/80 px-2 py-0.5 rounded-full">FREE</span>
             ) : (
               formatPrice(shippingFee)
             )}
           </dd>
         </div>
 
-        <div className="border-t border-[var(--color-border-light)] pt-3 flex justify-between items-baseline">
-          <dt className="font-heading text-base font-bold text-[var(--color-text-primary)]">
+        <div className="border-t border-emerald-100 pt-3.5 flex justify-between items-baseline">
+          <dt className="font-heading text-lg font-bold text-[var(--color-text-primary)]">
             Total Payable
           </dt>
-          <dd className="text-xl font-bold text-[var(--color-text-primary)]">
+          <dd className="text-2xl font-extrabold text-emerald-800">
             {formatPrice(total)}
           </dd>
         </div>
@@ -197,21 +201,21 @@ export function CartSummary() {
       {/* Checkout CTA Button */}
       <Link
         href="/checkout"
-        className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-[var(--radius-md)] bg-[var(--color-text-primary)] text-white hover:bg-[var(--color-accent-hover)] active:scale-[0.99] text-sm font-semibold uppercase tracking-wider transition-all shadow-sm select-none"
+        className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white hover:from-emerald-700 hover:to-green-800 active:scale-[0.98] text-sm font-bold uppercase tracking-wider transition-all shadow-sm hover:shadow-[var(--shadow-green)] select-none"
       >
         <span>Proceed to Checkout</span>
-        <ArrowRight size={16} />
+        <ArrowRight size={17} />
       </Link>
 
       {/* Assurances */}
-      <div className="pt-2 border-t border-[var(--color-border-light)] space-y-2 text-xs text-[var(--color-text-muted)]">
+      <div className="pt-3 border-t border-emerald-100 space-y-2 text-xs text-stone-500">
         <div className="flex items-center gap-2">
-          <Truck size={14} className="text-[var(--color-accent)] shrink-0" />
-          <span>Cash on Delivery available nationwide</span>
+          <Truck size={15} className="text-emerald-600 shrink-0" />
+          <span>Cash on Delivery (COD) available all over Pakistan</span>
         </div>
         <div className="flex items-center gap-2">
-          <ShieldCheck size={14} className="text-[var(--color-accent)] shrink-0" />
-          <span>100% Genuine, inspected stock</span>
+          <ShieldCheck size={15} className="text-emerald-600 shrink-0" />
+          <span>100% Guaranteed Authentic Brands</span>
         </div>
       </div>
     </div>

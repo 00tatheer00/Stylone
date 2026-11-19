@@ -33,10 +33,10 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
               type="button"
               onClick={() => setActiveIndex(idx)}
               className={cn(
-                'relative w-16 h-20 sm:w-20 sm:h-24 rounded-[var(--radius-md)] overflow-hidden shrink-0 border transition-all',
+                'relative w-16 h-20 sm:w-20 sm:h-24 rounded-xl overflow-hidden shrink-0 border transition-all',
                 activeIndex === idx
-                  ? 'border-[var(--color-text-primary)] ring-1 ring-[var(--color-text-primary)]'
-                  : 'border-[var(--color-border-light)] hover:border-[var(--color-border)] opacity-70 hover:opacity-100'
+                  ? 'border-emerald-600 ring-2 ring-emerald-500/30 shadow-xs'
+                  : 'border-emerald-100 hover:border-emerald-300 opacity-70 hover:opacity-100'
               )}
               aria-label={`View image ${idx + 1} of ${productName}`}
             >

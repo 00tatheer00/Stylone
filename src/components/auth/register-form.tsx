@@ -373,7 +373,7 @@ export function RegisterForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full mt-3 py-3 px-4 rounded-[var(--radius-md)] bg-[var(--color-text-primary)] hover:bg-[var(--color-accent)] text-white text-xs uppercase tracking-widest font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full mt-3 py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white text-xs uppercase tracking-widest font-bold transition-all shadow-sm hover:shadow-[var(--shadow-green)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <>
@@ -381,16 +381,16 @@ export function RegisterForm() {
               <span>Creating Account...</span>
             </>
           ) : (
-            <span>Create Account</span>
+            <span>Create Free Account</span>
           )}
         </button>
       </form>
 
-      <div className="mt-6 pt-5 border-t border-[var(--color-border-light)] text-center text-xs text-[var(--color-text-secondary)]">
+      <div className="mt-6 pt-5 border-t border-emerald-100 text-center text-xs text-stone-600">
         Already have a STYLONE account?{' '}
         <Link
           href={`/login?redirectTo=${encodeURIComponent(redirectTo)}`}
-          className="font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors underline-offset-4 hover:underline"
+          className="font-bold text-emerald-700 hover:text-emerald-800 transition-colors underline-offset-4 hover:underline"
         >
           Sign In
         </Link>

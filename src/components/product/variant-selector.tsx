@@ -54,9 +54,9 @@ export function VariantSelector({
                 className={cn(
                   'group relative flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-medium transition-all select-none',
                   isSelected
-                    ? 'border-[var(--color-text-primary)] ring-1 ring-[var(--color-text-primary)] bg-[var(--color-bg-secondary)]'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-primary)] bg-white',
-                  isOutOfStock && 'opacity-40 cursor-not-allowed bg-[var(--color-bg-secondary)] line-through'
+                    ? 'border-emerald-600 ring-2 ring-emerald-500/20 bg-emerald-50 text-emerald-950 font-bold shadow-2xs'
+                    : 'border-emerald-100 hover:border-emerald-400 bg-white',
+                  isOutOfStock && 'opacity-40 cursor-not-allowed bg-stone-100 line-through'
                 )}
                 title={`${v.name}${isOutOfStock ? ' (Sold Out)' : ''}`}
                 aria-label={`Shade ${v.name}${isOutOfStock ? ' - Sold Out' : ''}`}
@@ -69,7 +69,7 @@ export function VariantSelector({
                 )}
                 <span className="truncate max-w-[130px]">{v.name}</span>
                 {isOutOfStock && (
-                  <span className="text-[10px] text-[var(--color-error)] no-underline">
+                  <span className="text-[10px] text-rose-500 no-underline font-normal">
                     (Out)
                   </span>
                 )}
@@ -91,11 +91,11 @@ export function VariantSelector({
                 disabled={isOutOfStock}
                 onClick={() => onSelect(v)}
                 className={cn(
-                  'px-4 py-2 rounded-[var(--radius-md)] border text-xs font-medium transition-all select-none',
+                  'px-4 py-2 rounded-xl border text-xs font-semibold transition-all select-none',
                   isSelected
-                    ? 'border-[var(--color-text-primary)] bg-[var(--color-text-primary)] text-white shadow-xs'
-                    : 'border-[var(--color-border)] bg-white text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)]',
-                  isOutOfStock && 'opacity-40 cursor-not-allowed bg-[var(--color-bg-secondary)] line-through text-[var(--color-text-muted)]'
+                    ? 'border-emerald-700 bg-emerald-700 text-white shadow-xs'
+                    : 'border-emerald-200 bg-white text-[var(--color-text-primary)] hover:border-emerald-500',
+                  isOutOfStock && 'opacity-40 cursor-not-allowed bg-stone-100 line-through text-stone-400'
                 )}
                 aria-label={`${v.name}${isOutOfStock ? ' - Sold Out' : ''}`}
               >

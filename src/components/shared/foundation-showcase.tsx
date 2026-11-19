@@ -66,32 +66,32 @@ function FoundationShowcase() {
         <Container>
           <SectionHeading
             title="Brand Colors"
-            subtitle="The STYLONE palette — warm, refined and accessible."
+            subtitle="The STYLONE palette — fresh botanical green, radiant and accessible."
           />
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { name: 'Primary BG', color: '#F6F0E8', text: 'dark' },
-              { name: 'Secondary BG', color: '#EDE4D9', text: 'dark' },
-              { name: 'Primary Text', color: '#292421', text: 'light' },
-              { name: 'Accent', color: '#B79A72', text: 'light' },
-              { name: 'Accent Secondary', color: '#DCC6AE', text: 'dark' },
+              { name: 'Mint BG', color: '#F0FAF0', text: 'dark' },
+              { name: 'Sage BG', color: '#E0F2E0', text: 'dark' },
+              { name: 'Forest Text', color: '#1A2E1A', text: 'light' },
+              { name: 'Emerald Accent', color: '#22C55E', text: 'light' },
+              { name: 'Mint Accent', color: '#86EFAC', text: 'dark' },
               { name: 'White', color: '#FFFFFF', text: 'dark' },
             ].map((swatch) => (
               <div key={swatch.name} className="text-center">
                 <div
-                  className="h-20 md:h-24 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] flex items-end justify-center pb-2"
+                  className="h-20 md:h-24 rounded-2xl border border-[var(--color-border-light)] flex items-end justify-center pb-2 shadow-2xs"
                   style={{ backgroundColor: swatch.color }}
                 >
                   <span
-                    className="text-xs font-medium"
+                    className="text-xs font-semibold"
                     style={{
-                      color: swatch.text === 'light' ? '#fff' : '#292421',
+                      color: swatch.text === 'light' ? '#fff' : '#1A2E1A',
                     }}
                   >
                     {swatch.color}
                   </span>
                 </div>
-                <p className="mt-2 text-xs text-[var(--color-text-muted)]">
+                <p className="mt-2 text-xs font-medium text-[var(--color-text-muted)]">
                   {swatch.name}
                 </p>
               </div>

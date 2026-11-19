@@ -482,10 +482,10 @@ export function CheckoutView() {
                   {/* COD Option */}
                   <label
                     className={cn(
-                      'flex items-start gap-3 p-4 rounded-[var(--radius-md)] border cursor-pointer select-none transition-all',
+                      'flex items-start gap-3 p-4 rounded-xl border cursor-pointer select-none transition-all',
                       formData.paymentMethod === 'cod'
-                        ? 'border-[var(--color-text-primary)] ring-1 ring-[var(--color-text-primary)] bg-[var(--color-bg-secondary)]/30'
-                        : 'border-[var(--color-border)] hover:border-[var(--color-text-primary)] bg-white'
+                        ? 'border-emerald-600 ring-1 ring-emerald-600 bg-emerald-50/60'
+                        : 'border-emerald-100 hover:border-emerald-300 bg-white'
                     )}
                   >
                     <input
@@ -494,17 +494,17 @@ export function CheckoutView() {
                       value="cod"
                       checked={formData.paymentMethod === 'cod'}
                       onChange={() => handleChange('paymentMethod', 'cod')}
-                      className="mt-1 accent-[var(--color-accent)]"
+                      className="mt-1 accent-emerald-600"
                     />
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 font-medium text-sm text-[var(--color-text-primary)]">
-                        <Banknote size={18} className="text-[var(--color-accent)]" />
+                      <div className="flex items-center gap-2 font-bold text-sm text-[var(--color-text-primary)]">
+                        <Banknote size={18} className="text-emerald-600" />
                         <span>Cash on Delivery (COD)</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-[var(--color-success)] font-semibold border border-emerald-200">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">
                           Recommended
                         </span>
                       </div>
-                      <p className="mt-1 text-xs text-[var(--color-text-muted)] leading-relaxed">
+                      <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                         Pay in cash to the delivery rider when your package arrives at your doorstep. Please have exact change ready.
                       </p>
                     </div>
@@ -513,10 +513,10 @@ export function CheckoutView() {
                   {/* Bank Transfer Option */}
                   <label
                     className={cn(
-                      'flex items-start gap-3 p-4 rounded-[var(--radius-md)] border cursor-pointer select-none transition-all',
+                      'flex items-start gap-3 p-4 rounded-xl border cursor-pointer select-none transition-all',
                       formData.paymentMethod === 'bank_transfer'
-                        ? 'border-[var(--color-text-primary)] ring-1 ring-[var(--color-text-primary)] bg-[var(--color-bg-secondary)]/30'
-                        : 'border-[var(--color-border)] hover:border-[var(--color-text-primary)] bg-white'
+                        ? 'border-emerald-600 ring-1 ring-emerald-600 bg-emerald-50/60'
+                        : 'border-emerald-100 hover:border-emerald-300 bg-white'
                     )}
                   >
                     <input
@@ -525,14 +525,14 @@ export function CheckoutView() {
                       value="bank_transfer"
                       checked={formData.paymentMethod === 'bank_transfer'}
                       onChange={() => handleChange('paymentMethod', 'bank_transfer')}
-                      className="mt-1 accent-[var(--color-accent)]"
+                      className="mt-1 accent-emerald-600"
                     />
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 font-medium text-sm text-[var(--color-text-primary)]">
-                        <CreditCard size={18} className="text-[var(--color-accent)]" />
+                      <div className="flex items-center gap-2 font-bold text-sm text-[var(--color-text-primary)]">
+                        <CreditCard size={18} className="text-emerald-600" />
                         <span>Direct Bank Transfer</span>
                       </div>
-                      <p className="mt-1 text-xs text-[var(--color-text-muted)] leading-relaxed">
+                      <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                         Transfer directly via Raast / Online Banking. Account details will be provided on the next screen.
                       </p>
                     </div>
@@ -545,7 +545,7 @@ export function CheckoutView() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-[var(--radius-md)] bg-[var(--color-text-primary)] text-white hover:bg-[var(--color-accent-hover)] active:scale-[0.99] text-sm font-semibold uppercase tracking-wider transition-all shadow-md select-none disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white hover:from-emerald-700 hover:to-green-800 active:scale-[0.98] text-sm font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-[var(--shadow-green)] select-none disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -559,8 +559,8 @@ export function CheckoutView() {
                     </>
                   )}
                 </button>
-                <div className="flex items-center justify-center gap-2 text-xs text-[var(--color-text-muted)]">
-                  <ShieldCheck size={14} className="text-[var(--color-accent)]" />
+                <div className="flex items-center justify-center gap-2 text-xs text-stone-500">
+                  <ShieldCheck size={14} className="text-emerald-600" />
                   <span>Secure 256-bit SSL encrypted checkout</span>
                 </div>
               </div>

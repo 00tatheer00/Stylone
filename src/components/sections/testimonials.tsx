@@ -1,10 +1,39 @@
+'use client';
+
 import { Container, SectionHeading } from '@/components/ui';
 import { Star } from 'lucide-react';
 import { demoTestimonials } from '@/data/demo-data';
+import { useRef, useEffect } from 'react';
+import { gsap } from '@/lib/gsap';
 
 function Testimonials() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.testimonial-card',
+        { y: 30, opacity: 0, scale: 0.97 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
+        },
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-14 md:py-20">
+    <section ref={sectionRef} className="py-14 md:py-20">
       <Container>
         <SectionHeading
           title="What Customers Say"
@@ -16,7 +45,7 @@ function Testimonials() {
           {demoTestimonials.map((t) => (
             <div
               key={t.id}
-              className="bg-white rounded-[var(--radius-lg)] border border-[var(--color-border-light)] p-6 sm:p-7"
+              className="testimonial-card bg-white rounded-[var(--radius-lg)] border border-[var(--color-border-light)] p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-green)] hover:border-[var(--color-accent)]/20 hover:-translate-y-1"
             >
               {/* Stars */}
               <div className="flex items-center gap-0.5 mb-4">

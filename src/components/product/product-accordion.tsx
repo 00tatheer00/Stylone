@@ -63,7 +63,7 @@ export function ProductAccordion({ product }: ProductAccordionProps) {
             <div className="mt-3 space-y-2">
               {product.benefits.map((benefit, i) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
-                  <CheckCircle2 size={16} className="text-[var(--color-accent)] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={16} className="text-emerald-600 shrink-0 mt-0.5" />
                   <span>{benefit}</span>
                 </div>
               ))}
@@ -88,7 +88,7 @@ export function ProductAccordion({ product }: ProductAccordionProps) {
           </button>
           {openSections.ingredients && (
             <div className="mt-3 text-sm text-[var(--color-text-secondary)] leading-relaxed">
-              <p className="font-mono text-xs text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)]/50 p-3.5 rounded-[var(--radius-md)] leading-relaxed">
+              <p className="font-mono text-xs text-emerald-950 bg-emerald-50/70 border border-emerald-100 p-4 rounded-xl leading-relaxed">
                 {product.ingredients.join(', ')}
               </p>
               <p className="text-[11px] text-[var(--color-text-muted)] mt-2">

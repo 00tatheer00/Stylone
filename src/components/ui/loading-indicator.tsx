@@ -1,4 +1,5 @@
-import { Loader2 } from 'lucide-react';
+'use client';
+
 import { cn } from '@/lib/utils';
 
 interface LoadingIndicatorProps {
@@ -7,10 +8,16 @@ interface LoadingIndicatorProps {
   label?: string;
 }
 
-const sizeMap = {
-  sm: 16,
-  md: 24,
-  lg: 32,
+const dotSizeMap = {
+  sm: 'w-1.5 h-1.5',
+  md: 'w-2.5 h-2.5',
+  lg: 'w-3.5 h-3.5',
+};
+
+const gapMap = {
+  sm: 'gap-1',
+  md: 'gap-1.5',
+  lg: 'gap-2',
 };
 
 function LoadingIndicator({
@@ -20,15 +27,22 @@ function LoadingIndicator({
 }: LoadingIndicatorProps) {
   return (
     <div
-      className={cn('flex items-center justify-center gap-2', className)}
+      className={cn('flex items-center justify-center', gapMap[size], className)}
       role="status"
       aria-label={label}
     >
-      <Loader2
-        className="animate-spin text-[var(--color-accent)]"
-        size={sizeMap[size]}
-        aria-hidden="true"
-      />
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          className={cn(
+            'rounded-full bg-[var(--color-accent)]',
+            dotSizeMap[size],
+          )}
+          style={{
+            animation: `bounce-dots 1.4s ease-in-out ${i * 0.16}s infinite both`,
+          }}
+        />
+      ))}
       <span className="sr-only">{label}</span>
     </div>
   );

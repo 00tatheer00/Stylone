@@ -33,9 +33,13 @@ function Newsletter() {
   };
 
   return (
-    <section className="py-14 md:py-20 bg-[var(--color-text-primary)]">
+    <section className="py-14 md:py-20 bg-gradient-to-br from-[#166534] via-[#15803D] to-[#14532D] relative overflow-hidden">
+      {/* Decorative circles */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-green-400/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-green-300/10 rounded-full blur-2xl" />
+
       <Container>
-        <div className="max-w-xl mx-auto text-center">
+        <div className="max-w-xl mx-auto text-center relative z-10">
           <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Stay in the Loop
           </h2>
@@ -72,7 +76,7 @@ function Newsletter() {
             </div>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-[var(--color-accent)] text-white rounded-[var(--radius-md)] hover:bg-[var(--color-accent-hover)] transition-colors whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-[var(--color-accent)] text-white rounded-[var(--radius-md)] hover:bg-[var(--color-accent-hover)] hover:shadow-[var(--shadow-green)] transition-all duration-300 whitespace-nowrap active:scale-[0.97]"
             >
               <Send size={14} />
               Subscribe
@@ -81,10 +85,10 @@ function Newsletter() {
 
           {/* Feedback */}
           {status === 'error' && errorMsg && (
-            <p className="mt-3 text-xs text-[var(--color-error)]">{errorMsg}</p>
+            <p className="mt-3 text-xs text-red-300">{errorMsg}</p>
           )}
           {status === 'success' && (
-            <p className="mt-3 text-xs text-[var(--color-success)]">
+            <p className="mt-3 text-xs text-green-300">
               Demo subscription received! (This is a UI demonstration — no real subscription was created.)
             </p>
           )}

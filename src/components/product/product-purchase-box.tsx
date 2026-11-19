@@ -149,12 +149,12 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
             onClick={handleAddToCart}
             disabled={!isAvailable}
             className={cn(
-              'flex-1 h-12 flex items-center justify-center gap-2 px-6 text-sm font-semibold uppercase tracking-wider rounded-[var(--radius-md)] transition-all select-none shadow-sm',
+              'flex-1 h-12 flex items-center justify-center gap-2 px-6 text-sm font-bold uppercase tracking-wider rounded-xl transition-all select-none shadow-sm',
               !isAvailable
-                ? 'bg-[var(--color-bg-secondary)] border border-[var(--color-border-light)] text-[var(--color-text-muted)] cursor-not-allowed'
+                ? 'bg-stone-100 text-stone-400 cursor-not-allowed'
                 : addedAnim
-                ? 'bg-[var(--color-success)] text-white hover:bg-[var(--color-success)]'
-                : 'bg-[var(--color-text-primary)] text-white hover:bg-[var(--color-accent-hover)] active:scale-[0.99]'
+                ? 'bg-emerald-600 text-white scale-[1.02] shadow-[var(--shadow-green)]'
+                : 'bg-gradient-to-r from-emerald-600 via-emerald-700 to-green-700 text-white hover:from-emerald-700 hover:to-green-800 hover:shadow-[var(--shadow-green)] active:scale-[0.98]'
             )}
             aria-label={
               !isAvailable
@@ -164,15 +164,15 @@ export function ProductPurchaseBox({ product }: ProductPurchaseBoxProps) {
           >
             {addedAnim ? (
               <>
-                <Check size={18} className="stroke-[2.5]" />
-                Added ({quantity})
+                <Check size={18} className="stroke-[3] animate-bounce" />
+                <span>Added to Bag!</span>
               </>
             ) : !isAvailable ? (
               'Sold Out'
             ) : (
               <>
                 <ShoppingBag size={18} />
-                Add to Bag
+                <span>Add to Bag</span>
               </>
             )}
           </button>

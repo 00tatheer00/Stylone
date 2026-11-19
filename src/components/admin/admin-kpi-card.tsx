@@ -18,30 +18,30 @@ export function AdminKPICard({
   icon: Icon,
 }: AdminKPICardProps) {
   return (
-    <div className="bg-white rounded-[var(--radius-lg)] border border-[var(--color-border-light)] p-5 shadow-xs flex flex-col justify-between transition-all hover:border-[var(--color-border-dark)]">
+    <div className="bg-white rounded-2xl border border-emerald-100/80 p-5 shadow-xs flex flex-col justify-between transition-all duration-300 hover:border-emerald-300 hover:shadow-[var(--shadow-green)] hover:-translate-y-0.5">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)]">
+        <span className="text-xs font-bold uppercase tracking-wider text-stone-600">
           {label}
         </span>
         {Icon && (
-          <div className="w-8 h-8 rounded-full bg-[var(--color-bg-secondary)] text-[var(--color-accent)] flex items-center justify-center shrink-0">
-            <Icon size={16} />
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-100 to-green-50 text-emerald-700 flex items-center justify-center shrink-0 shadow-2xs">
+            <Icon size={18} />
           </div>
         )}
       </div>
 
       <div className="space-y-1">
-        <p className="font-heading text-2xl font-bold tracking-tight text-[var(--color-text-primary)]">
+        <p className="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
           {value}
         </p>
 
         <div className="flex items-center gap-2 text-xs pt-1">
           <span
-            className={`inline-flex items-center gap-0.5 font-semibold text-[11px] px-1.5 py-0.2 rounded ${
+            className={`inline-flex items-center gap-1 font-bold text-[11px] px-2 py-0.5 rounded-full ${
               trend === 'up'
-                ? 'bg-emerald-50 text-emerald-700'
+                ? 'bg-emerald-100 text-emerald-800'
                 : trend === 'down'
-                ? 'bg-rose-50 text-rose-700'
+                ? 'bg-rose-100 text-rose-800'
                 : 'bg-stone-100 text-stone-700'
             }`}
           >
@@ -50,7 +50,7 @@ export function AdminKPICard({
             {trend === 'neutral' && <Minus size={12} />}
             <span>{change}</span>
           </span>
-          <span className="text-[11px] text-[var(--color-text-muted)] truncate">
+          <span className="text-[11px] text-stone-400 truncate">
             {timeframe}
           </span>
         </div>

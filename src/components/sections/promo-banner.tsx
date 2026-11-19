@@ -1,13 +1,41 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/ui';
 import { ArrowRight } from 'lucide-react';
+import { useRef, useEffect } from 'react';
+import { gsap } from '@/lib/gsap';
 
 function PromoBanner() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.promo-inner',
+        { y: 40, opacity: 0, scale: 0.98 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 82%',
+          },
+        },
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-14 md:py-20">
+    <section ref={sectionRef} className="py-14 md:py-20">
       <Container>
-        <div className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-bg-secondary)] min-h-[320px] sm:min-h-[380px]">
+        <div className="promo-inner relative overflow-hidden rounded-[var(--radius-xl)] bg-gradient-to-br from-[var(--color-bg-secondary)] to-[#d1fae5] min-h-[320px] sm:min-h-[380px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Text */}
             <div className="relative z-10 p-8 sm:p-10 lg:p-14">
@@ -25,10 +53,10 @@ function PromoBanner() {
               </p>
               <Link
                 href="/category/skincare"
-                className="inline-flex items-center gap-2 mt-7 px-6 py-3 text-sm font-medium bg-[var(--color-text-primary)] text-white rounded-[var(--radius-md)] hover:bg-[var(--color-accent-hover)] transition-colors"
+                className="group inline-flex items-center gap-2 mt-7 px-6 py-3 text-sm font-medium bg-[var(--color-accent)] text-white rounded-[var(--radius-md)] hover:bg-[var(--color-accent-hover)] hover:shadow-[var(--shadow-green)] transition-all duration-300 active:scale-[0.97]"
               >
                 Shop Skincare
-                <ArrowRight size={15} />
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
 

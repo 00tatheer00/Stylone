@@ -99,20 +99,20 @@ export function AdminSidebar({ mobileOpen, onCloseMobile }: AdminSidebarProps) {
   };
 
   const sidebarContent = (
-    <div className="flex flex-col h-full bg-stone-900 text-stone-300">
+    <div className="flex flex-col h-full bg-gradient-to-b from-[#091b0f] via-[#0b2113] to-[#06140b] text-emerald-100/80 border-r border-emerald-900/40">
       {/* Brand Header */}
-      <div className="h-16 flex items-center justify-between px-6 border-b border-stone-800 shrink-0">
+      <div className="h-16 flex items-center justify-between px-6 border-b border-emerald-900/40 shrink-0">
         <Link href="/admin" className="flex items-center gap-2.5">
           <span className="font-heading text-xl font-bold tracking-tight text-white">
             STYLONE
           </span>
-          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-[var(--color-accent)] text-stone-950">
+          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-emerald-500 text-emerald-950">
             HQ
           </span>
         </Link>
         <button
           onClick={onCloseMobile}
-          className="lg:hidden p-1.5 rounded text-stone-400 hover:text-white hover:bg-stone-800"
+          className="lg:hidden p-1.5 rounded text-emerald-400 hover:text-white hover:bg-emerald-900/50"
           aria-label="Close sidebar"
         >
           <X size={18} />
@@ -120,10 +120,10 @@ export function AdminSidebar({ mobileOpen, onCloseMobile }: AdminSidebarProps) {
       </div>
 
       {/* Navigation Groups */}
-      <nav className="flex-1 overflow-y-auto px-4 py-5 space-y-6 scrollbar-thin scrollbar-thumb-stone-800" aria-label="Admin Navigation">
+      <nav className="flex-1 overflow-y-auto px-4 py-5 space-y-6 scrollbar-thin scrollbar-thumb-emerald-900" aria-label="Admin Navigation">
         {navGroups.map((group) => (
           <div key={group.title}>
-            <p className="px-3 mb-2 text-[10px] font-bold uppercase tracking-widest text-stone-400">
+            <p className="px-3 mb-2 text-[10px] font-bold uppercase tracking-widest text-emerald-400/60">
               {group.title}
             </p>
             <ul className="space-y-1">
@@ -135,16 +135,16 @@ export function AdminSidebar({ mobileOpen, onCloseMobile }: AdminSidebarProps) {
                     <Link
                       href={item.href}
                       onClick={onCloseMobile}
-                      className={`flex items-center justify-between px-3 py-2 rounded-[var(--radius-md)] text-xs font-medium transition-colors ${
+                      className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
                         active
-                          ? 'bg-stone-800 text-white font-semibold shadow-xs'
-                          : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
+                          ? 'bg-gradient-to-r from-emerald-700 to-green-600 text-white font-bold shadow-xs'
+                          : 'text-emerald-100/70 hover:text-white hover:bg-emerald-900/40'
                       }`}
                     >
                       <span className="flex items-center gap-3">
                         <Icon
                           size={16}
-                          className={active ? 'text-[var(--color-accent)]' : 'text-stone-400'}
+                          className={active ? 'text-white' : 'text-emerald-400/80'}
                         />
                         <span>{item.label}</span>
                       </span>
@@ -152,8 +152,8 @@ export function AdminSidebar({ mobileOpen, onCloseMobile }: AdminSidebarProps) {
                         <span
                           className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
                             item.badge === 'Low'
-                              ? 'bg-amber-500/20 text-amber-400'
-                              : 'bg-stone-700 text-stone-200'
+                              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                              : 'bg-emerald-800 text-emerald-200'
                           }`}
                         >
                           {item.badge}
@@ -169,17 +169,17 @@ export function AdminSidebar({ mobileOpen, onCloseMobile }: AdminSidebarProps) {
       </nav>
 
       {/* Footer / Storefront link */}
-      <div className="p-4 border-t border-stone-800 shrink-0">
+      <div className="p-4 border-t border-emerald-900/40 shrink-0">
         <Link
           href="/"
           target="_blank"
-          className="flex items-center justify-between px-3 py-2.5 rounded-[var(--radius-md)] bg-stone-800/60 hover:bg-stone-800 text-xs text-stone-300 hover:text-white transition-colors"
+          className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-emerald-950/60 border border-emerald-900/50 hover:bg-emerald-900/60 text-xs text-emerald-200 hover:text-white transition-colors"
         >
           <span className="flex items-center gap-2">
-            <Globe size={15} className="text-[var(--color-accent)]" />
+            <Globe size={15} className="text-emerald-400" />
             <span>View Public Boutique</span>
           </span>
-          <ExternalLink size={12} className="text-stone-400" />
+          <ExternalLink size={12} className="text-emerald-400/70" />
         </Link>
       </div>
     </div>

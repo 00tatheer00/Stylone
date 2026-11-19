@@ -1,5 +1,5 @@
 /**
- * STYLONE Design Tokens
+ * STYLONE Design Tokens — GREEN THEME
  *
  * Central design system configuration.
  * All visual constants referenced across the application.
@@ -7,42 +7,42 @@
  */
 
 export const colors = {
-  /** Primary warm-cream background */
+  /** Primary mint-green background */
   background: {
-    primary: '#F6F0E8',
-    secondary: '#EDE4D9',
+    primary: '#F0FAF0',
+    secondary: '#E0F2E0',
   },
   /** Text colors */
   text: {
-    primary: '#292421',
-    secondary: '#5C524A',
-    muted: '#8A7F76',
+    primary: '#1A2E1A',
+    secondary: '#3D5A3D',
+    muted: '#6B8A6B',
     inverse: '#FFFFFF',
   },
-  /** Brand accents */
+  /** Brand accents — GREEN */
   accent: {
-    primary: '#B79A72',
-    secondary: '#DCC6AE',
-    hover: '#A68960',
+    primary: '#22C55E',
+    secondary: '#86EFAC',
+    hover: '#16A34A',
   },
   /** UI surfaces */
   surface: {
     white: '#FFFFFF',
     card: '#FFFFFF',
-    border: '#E8DDD1',
-    borderLight: '#F0E8DE',
+    border: '#C6E7C6',
+    borderLight: '#DCF0DC',
   },
   /** Semantic */
   semantic: {
-    success: '#4A7C59',
-    error: '#B84444',
-    warning: '#C4922E',
-    info: '#5B7FA5',
+    success: '#15803D',
+    error: '#DC2626',
+    warning: '#D97706',
+    info: '#2563EB',
   },
 } as const;
 
 export const typography = {
-  /** Font families — referencing CSS custom properties set by next/font */
+  /** Font families — referencing CSS custom properties */
   family: {
     heading: 'var(--font-heading)',
     body: 'var(--font-body)',
@@ -110,14 +110,17 @@ export const radius = {
 } as const;
 
 export const shadows = {
-  sm: '0 1px 2px 0 rgba(41, 36, 33, 0.04)',
-  md: '0 2px 8px -2px rgba(41, 36, 33, 0.08)',
-  lg: '0 4px 16px -4px rgba(41, 36, 33, 0.1)',
-  xl: '0 8px 32px -8px rgba(41, 36, 33, 0.12)',
+  sm: '0 1px 2px 0 rgba(26, 46, 26, 0.05)',
+  md: '0 2px 8px -2px rgba(26, 46, 26, 0.08)',
+  lg: '0 4px 16px -4px rgba(26, 46, 26, 0.1)',
+  xl: '0 8px 32px -8px rgba(26, 46, 26, 0.12)',
+  green: '0 4px 20px -4px rgba(34, 197, 94, 0.25)',
+  greenLg: '0 8px 32px -6px rgba(34, 197, 94, 0.3)',
 } as const;
 
 export const transitions = {
   fast: '150ms ease',
   base: '200ms ease',
   slow: '300ms ease',
+  spring: '400ms cubic-bezier(0.34, 1.56, 0.64, 1)',
 } as const;
