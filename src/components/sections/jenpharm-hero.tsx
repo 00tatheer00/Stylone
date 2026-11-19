@@ -89,7 +89,7 @@ export function JenpharmHero() {
           </div>
 
           {/* Majestic Power Headline */}
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.08]">
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
             Targeted Botanical Care For Hairfall With
             <span className="block mt-2 sm:mt-3 text-emerald-800">
               Pure Herbal Shampoos &amp; Active Serums
@@ -97,7 +97,7 @@ export function JenpharmHero() {
           </h1>
 
           {/* Subtitle / Clinical Reassurance */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed pt-5 sm:pt-6">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed pt-4 sm:pt-6">
             Prescribed by Pakistan&apos;s leading dermatologists. Powered by cold-pressed red onion oil, therapeutic rosemary extract, and active biotin peptides to halt hairfall and stimulate dense, resilient roots in 14 days.
           </p>
 
@@ -115,31 +115,31 @@ export function JenpharmHero() {
           </div>
 
           {/* ─────────────────────────────────────────────────────────────
-              4. PRIMARY ACTION BUTTONS
+              4. PRIMARY ACTION BUTTONS (MOBILE FULL-WIDTH & DESKTOP ROW)
               ───────────────────────────────────────────────────────────── */}
-          <div className="pt-8 sm:pt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
-            {/* Button 1: Explore Herbal Shampoos (White Button with Emerald Border & Text) */}
+          <div className="pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
+            {/* Button 1: Explore Herbal Shampoos */}
             <Link
               href="/category/haircare"
-              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
+              className="w-full sm:w-auto h-12 sm:h-13 px-6 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
             >
               <span>Explore Herbal Shampoos</span>
               <ArrowRight size={17} className="text-[#064e3b] shrink-0" />
             </Link>
 
-            {/* Button 2: Explore Active Serums (White Button with Emerald Border & Text) */}
+            {/* Button 2: Explore Active Serums */}
             <Link
               href="/category/skincare"
-              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
+              className="w-full sm:w-auto h-12 sm:h-13 px-6 sm:px-8 rounded-full bg-white hover:bg-emerald-50 text-[#064e3b] border-2 border-[#064e3b] font-extrabold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2.5 whitespace-nowrap cursor-pointer select-none"
             >
               <span>Explore Active Serums</span>
               <ArrowRight size={17} className="text-[#064e3b] shrink-0" />
             </Link>
 
-            {/* Button 3: View All Products (Solid Emerald CTA) */}
+            {/* Button 3: View All Products */}
             <Link
               href="/shop"
-              className="h-12 sm:h-13 px-7 sm:px-8 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-extrabold text-sm sm:text-base shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer select-none border border-emerald-700"
+              className="w-full sm:w-auto h-12 sm:h-13 px-6 sm:px-8 rounded-full bg-[#064e3b] hover:bg-[#047857] text-white font-extrabold text-sm sm:text-base shadow-md transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer select-none border border-emerald-700"
             >
               <span>View All Products</span>
               <ArrowRight size={16} className="text-white shrink-0" />
