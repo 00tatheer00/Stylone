@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { AnnouncementBar, Header, Footer, MobileBottomBar, WhatsAppFloatingButton } from '@/components/layout';
+import { CartDrawer } from '@/components/cart';
 import { CartProvider } from '@/hooks/use-cart';
 import { WishlistProvider } from '@/hooks/use-wishlist';
 import { AuthProvider } from '@/hooks/use-auth';
@@ -24,6 +25,7 @@ export default function StoreLayout({
             <main className="flex-1 pb-16 lg:pb-0">{children}</main>
             <Footer />
             <WhatsAppFloatingButton />
+            <CartDrawer />
             <Suspense fallback={null}>
               <MobileBottomBar />
             </Suspense>

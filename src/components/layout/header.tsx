@@ -16,9 +16,8 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Herbal Shampoos', href: '/category/haircare' },
   { label: 'Active Serums', href: '/category/skincare' },
-  { label: 'Anti-Hairfall Care', href: '/category/haircare' },
   { label: 'Shop All', href: '/shop' },
-  { label: 'Beauty Accessories', href: '/category/beauty-accessories' },
+  { label: 'Track Order', href: '/track-order' },
 ];
 
 function Header() {
@@ -27,7 +26,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const navContainerRef = useRef<HTMLElement>(null);
-  const { itemCount } = useCart();
+  const { itemCount, openDrawer } = useCart();
   const { count: wishlistCount } = useWishlist();
   const { user, profile } = useAuth();
 
@@ -161,10 +160,11 @@ function Header() {
                 </Link>
               )}
 
-              {/* Shopping Bag */}
-              <Link
-                href="/cart"
-                className="relative p-2 sm:p-2.5 rounded-full bg-emerald-800 text-white hover:bg-emerald-900 shadow-sm transition-all duration-200 active:scale-95"
+              {/* Shopping Bag Button (Opens Slide-out Cart Drawer) */}
+              <button
+                type="button"
+                onClick={openDrawer}
+                className="relative p-2 sm:p-2.5 rounded-full bg-emerald-800 text-white hover:bg-emerald-900 shadow-sm transition-all duration-200 active:scale-95 cursor-pointer"
                 aria-label={`Shopping bag${itemCount > 0 ? `, ${itemCount} items` : ''}`}
               >
                 <ShoppingBag size={18} />
@@ -173,7 +173,7 @@ function Header() {
                     {itemCount > 99 ? '99+' : itemCount}
                   </span>
                 )}
-              </Link>
+              </button>
             </div>
           </div>
         </Container>

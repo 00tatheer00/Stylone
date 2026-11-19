@@ -58,6 +58,9 @@ interface CartContextValue {
   applyCoupon: (code: string) => { success: boolean; message: string };
   removeCoupon: () => void;
   isHydrated: boolean;
+  isDrawerOpen: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -69,6 +72,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [coupon, setCoupon] = useState<DemoCoupon | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const openDrawer = useCallback(() => setIsDrawerOpen(true), []);
+  const closeDrawer = useCallback(() => setIsDrawerOpen(false), []);
 
   // Hydrate from localStorage once mounted
   useEffect(() => {
@@ -185,6 +192,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       ];
     });
     toast.success(`"${newItem.name}" added to shopping bag!`, 'Added to Bag');
+    setIsDrawerOpen(true);
   }, []);
 
   const updateQuantity = useCallback((id: string, newQty: number) => {
@@ -262,6 +270,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         applyCoupon,
         removeCoupon,
         isHydrated,
+        isDrawerOpen,
+        openDrawer,
+        closeDrawer,
       }}
     >
       {children}

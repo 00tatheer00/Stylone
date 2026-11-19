@@ -6,6 +6,7 @@ import {
   ProductGallery,
   ProductPurchaseBox,
   ProductAccordion,
+  FrequentlyBoughtTogether,
   RecentlyViewed,
 } from '@/components/product';
 import { ProductCard } from '@/components/shared/product-card';
@@ -91,6 +92,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             {/* Purchase & Details Column */}
             <div className="space-y-8">
               <ProductPurchaseBox product={product} />
+              <FrequentlyBoughtTogether currentProduct={product} />
               <ProductAccordion product={product} />
             </div>
           </div>

@@ -60,7 +60,7 @@ const accordionSections: AccordionItem[] = [
   {
     title: 'Support & Help',
     links: [
-      { label: 'Track Your Order', href: '/account/orders' },
+      { label: 'Track Your Order', href: '/track-order' },
       { label: 'Cash on Delivery (COD) Info', href: '/checkout' },
       { label: '7-Day Return Guarantee', href: '/shop' },
       { label: 'WhatsApp Customer Care', href: 'https://wa.me/923001234567' },

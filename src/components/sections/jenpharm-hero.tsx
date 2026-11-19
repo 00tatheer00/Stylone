@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   Star,
@@ -12,8 +13,10 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { Container } from '@/components/ui';
+import { HairRoutineQuizModal } from './hair-routine-quiz-modal';
 
 export function JenpharmHero() {
+  const [quizOpen, setQuizOpen] = useState(false);
   return (
     <section className="relative w-full bg-gradient-to-b from-[#f3f8f5] via-[#f9fcf9] to-white border-b border-emerald-900/10 overflow-hidden">
       {/* ─────────────────────────────────────────────────────────────
@@ -145,6 +148,24 @@ export function JenpharmHero() {
               <ArrowRight size={16} className="text-white shrink-0" />
             </Link>
           </div>
+
+          {/* Quiz Trigger Link */}
+          <div className="pt-4">
+            <button
+              type="button"
+              onClick={() => setQuizOpen(true)}
+              className="inline-flex items-center gap-1.5 text-xs text-emerald-800 hover:text-emerald-950 font-bold underline underline-offset-4 transition-colors cursor-pointer"
+            >
+              <Sparkles size={13} className="text-emerald-600" />
+              <span>Not sure which fits your scalp? Take the 30-Second Hairfall Quiz →</span>
+            </button>
+          </div>
+
+          {/* 30-Second Routine Finder Modal */}
+          <HairRoutineQuizModal
+            open={quizOpen}
+            onClose={() => setQuizOpen(false)}
+          />
 
           {/* ─────────────────────────────────────────────────────────────
               5. SUPER PREMIUM CLINICAL EFFICACY METRICS (REPLACES CARDS)

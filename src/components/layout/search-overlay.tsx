@@ -4,9 +4,10 @@ import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, Search as SearchIcon, ArrowRight, Sparkles } from 'lucide-react';
+import { X, Search as SearchIcon, ArrowRight, Sparkles, ShoppingBag } from 'lucide-react';
 import { cn, formatPrice } from '@/lib/utils';
 import { Container } from '@/components/ui';
+import { useCart } from '@/hooks/use-cart';
 import { products } from '@/data/products';
 
 interface SearchOverlayProps {
@@ -18,6 +19,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const { addItem } = useCart();
 
   const handleClose = useCallback(() => {
     setQuery('');
@@ -151,11 +153,32 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                         <h4 className="text-sm font-semibold text-[var(--color-text-primary)] truncate group-hover:text-emerald-700 transition-colors">
                           {product.name}
                         </h4>
-                        <p className="text-xs font-bold text-[var(--color-text-primary)] mt-0.5">
+                        <p className="text-xs font-bold text-slate-900 mt-0.5">
                           {formatPrice(product.price)}
                         </p>
                       </div>
-                      <ArrowRight size={16} className="text-stone-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all shrink-0" />
+
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          addItem({
+                            id: product.id,
+                            productId: product.id,
+                            name: product.name,
+                            price: product.price,
+                            image: product.image,
+                            slug: product.slug,
+                            quantity: 1,
+                          });
+                          handleClose();
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white font-black text-xs shrink-0 cursor-pointer shadow-xs active:scale-95 flex items-center gap-1"
+                      >
+                        <ShoppingBag size={12} />
+                        <span>+ Add</span>
+                      </button>
                     </Link>
                   ))}
                 </div>
